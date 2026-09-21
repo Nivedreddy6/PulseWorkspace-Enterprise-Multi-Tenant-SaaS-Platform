@@ -17,7 +17,7 @@
   </p>
 
   <p align="center">
-    <strong>A production-ready, multi-tenant B2B SaaS platform engineered for resumes, portfolios, and enterprise scale.</strong>
+    <strong>A production-ready, multi-tenant B2B SaaS platform engineered for team collaboration and enterprise scale.</strong>
   </p>
 
   <p align="center">
@@ -25,7 +25,6 @@
     <a href="#-architectural-overview">🏗️ Architecture</a> •
     <a href="#-key-features">✨ Features</a> •
     <a href="#-interactive-api-documentation">📡 API Docs</a> •
-    <a href="#-resume-ready-bullet-points">💼 Resume Bullets</a> •
     <a href="#-pre-loaded-demo-credentials">🔑 Demo Accounts</a>
   </p>
 
@@ -37,7 +36,7 @@
 
 **PulseWorkspace** is an enterprise-grade multi-tenant team management and SaaS operations platform built with **Django 6** and **Django REST Framework**. 
 
-Designed specifically as a **standout portfolio centerpiece**, this project demonstrates real-world software engineering competencies: **strict tenant data boundaries**, **granular Role-Based Access Control (RBAC)**, **immutable compliance audit trails**, **tiered quota gating**, **automated OpenAPI 3.0 documentation**, and **containerized DevOps readiness**.
+Designed for high-velocity software engineering organizations, this platform demonstrates real-world software engineering competencies: **strict tenant data boundaries**, **granular Role-Based Access Control (RBAC)**, **immutable compliance audit trails**, **tiered quota gating**, **automated OpenAPI 3.0 documentation**, and **containerized DevOps readiness**.
 
 ---
 
@@ -124,20 +123,6 @@ PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant d
     </td>
   </tr>
 </table>
-
----
-
-## 💼 Resume-Ready Bullet Points (STAR Format)
-
-> **Pro Tip**: Copy and paste these directly into your resume or LinkedIn experience section!
-
-- **Enterprise Multi-Tenant SaaS Architecture:** Architected and deployed a multi-tenant B2B SaaS platform in **Django 6** and **Django REST Framework**, enforcing strict tenant data isolation and custom Role-Based Access Control (**RBAC**: Owner, Admin, Member, Viewer).
-- **Security & Compliance Audit Logging:** Engineered an immutable, cryptographically timestamped audit logging engine capturing all permission modifications, workspace invitations, and entity mutations with IP tracking for enterprise SOC2 compliance.
-- **Quota Management & Feature Gating:** Implemented subscription tier rules (Free Starter, Pro Growth, Enterprise) with dynamic seat-limit throttling and project quotas, preventing over-provisioning across tenant instances.
-- **RESTful API & Automated OpenAPI Schemas:** Built comprehensive RESTful APIs documented via **drf-spectacular** (OpenAPI 3.0 / Swagger UI) with token authentication, query filtering, pagination, and atomic database transactions (`transaction.atomic`).
-- **Test-Driven Reliability:** Authored automated unit and integration test suites validating tenant isolation, role permission guards, and billing quota limits, maintaining 100% passing test coverage.
-
-*(Designed for software engineering portfolio demonstrations, technical code walkthroughs, and system design interviews).*
 
 ---
 
