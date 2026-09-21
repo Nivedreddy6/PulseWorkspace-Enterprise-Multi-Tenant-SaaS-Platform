@@ -103,13 +103,22 @@ python manage.py runserver
 
 ## 🔑 Pre-Loaded Demo Credentials
 
-The platform includes pre-configured demo personas for instant 1-click evaluation:
+<div align="center">
+  <img src="docs/assets/demo_credentials_animated.svg" alt="PulseWorkspace Demo Credentials Showcase" width="100%" />
+</div>
+
+<br/>
+
+<details>
+<summary><strong>📋 Click to expand table view of demo credentials</strong></summary>
 
 | Role | Username | Password | Access Capabilities |
 | :--- | :--- | :--- | :--- |
 | **👑 Workspace Owner** | `admin` | `password123` | Full administrative control, billing upgrades, team management |
 | **🛡️ Workspace Admin** | `sarah_lead` | `password123` | Project creation, member invitations, role modifications |
 | **💻 Workspace Member** | `alex_dev` | `password123` | Task execution, Kanban board progression, status updates |
+
+</details>
 
 ---
 
