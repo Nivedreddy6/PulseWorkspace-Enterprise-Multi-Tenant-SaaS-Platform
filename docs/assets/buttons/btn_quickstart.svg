@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 42" width="148" height="42">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1222" />
+      <stop offset="100%" stop-color="#161f38" />
+    </linearGradient>
+
+    <!-- Animated Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b">
+        <animate attributeName="stop-color" values="#f59e0b;#ef4444;#fbbf24;#f59e0b" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#ef4444">
+        <animate attributeName="stop-color" values="#ef4444;#fbbf24;#f59e0b;#ef4444" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#fbbf24">
+        <animate attributeName="stop-color" values="#fbbf24;#f59e0b;#ef4444;#fbbf24" dur="4s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Shimmer Highlight Beam -->
+    <linearGradient id="shimmerBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+      <stop offset="50%" stop-color="rgba(255,255,255,0.35)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </linearGradient>
+
+    <!-- Glowing Drop Shadow -->
+    <filter id="iconGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#f59e0b" flood-opacity="0.8" />
+    </filter>
+
+    <clipPath id="btnClip">
+      <rect x="1" y="1" width="146" height="40" rx="20" />
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes sweep {
+      0% { transform: translateX(-120px) skewX(-25deg); }
+      50%, 100% { transform: translateX(220px) skewX(-25deg); }
+    }
+    @keyframes pulseIcon {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .shimmer {
+      animation: sweep 3.5s ease-in-out infinite;
+    }
+    .btn-text {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      fill: #ffffff;
+    }
+    .pulse-bolt {
+      transform-origin: 24px 21px;
+      animation: pulseIcon 2s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Button Container Clipped -->
+  <g clip-path="url(#btnClip)">
+    <!-- Base Background -->
+    <rect x="1" y="1" width="146" height="40" rx="20" fill="url(#bgGrad)" />
+
+    <!-- Animated Light Sweep Beam -->
+    <rect class="shimmer" x="0" y="0" width="45" height="42" fill="url(#shimmerBeam)" />
+  </g>
+
+  <!-- Button Border with Gradient -->
+  <rect x="1" y="1" width="146" height="40" rx="20" fill="none" stroke="url(#borderGrad)" stroke-width="1.8" />
+
+  <!-- Animated Lightning Icon -->
+  <g class="pulse-bolt" filter="url(#iconGlow)">
+    <path d="M26 11 L18 22 L23 22 L21 31 L30 19 L25 19 Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="0.5" stroke-linejoin="round" />
+  </g>
+
+  <!-- Button Label -->
+  <text x="38" y="26" class="btn-text">Quickstart</text>
+
+  <!-- Subtle Arrow indicator -->
+  <path d="M125 18 L129 21 L125 24" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
+</svg>

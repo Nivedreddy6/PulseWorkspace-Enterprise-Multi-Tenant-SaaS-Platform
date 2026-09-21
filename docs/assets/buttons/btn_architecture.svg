@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 42" width="158" height="42">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradArch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09182b" />
+      <stop offset="100%" stop-color="#12243d" />
+    </linearGradient>
+
+    <!-- Animated Border Gradient -->
+    <linearGradient id="borderGradArch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4">
+        <animate attributeName="stop-color" values="#06b6d4;#3b82f6;#38bdf8;#06b6d4" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#3b82f6">
+        <animate attributeName="stop-color" values="#3b82f6;#38bdf8;#06b6d4;#3b82f6" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#38bdf8">
+        <animate attributeName="stop-color" values="#38bdf8;#06b6d4;#3b82f6;#38bdf8" dur="4s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Shimmer Highlight Beam -->
+    <linearGradient id="shimmerBeamArch" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+      <stop offset="50%" stop-color="rgba(255,255,255,0.35)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </linearGradient>
+
+    <!-- Glowing Drop Shadow -->
+    <filter id="iconGlowArch" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#06b6d4" flood-opacity="0.8" />
+    </filter>
+
+    <clipPath id="btnClipArch">
+      <rect x="1" y="1" width="156" height="40" rx="20" />
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes sweepArch {
+      0% { transform: translateX(-120px) skewX(-25deg); }
+      50%, 100% { transform: translateX(230px) skewX(-25deg); }
+    }
+    @keyframes pulseIconArch {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .shimmer {
+      animation: sweepArch 3.6s ease-in-out infinite 0.4s;
+    }
+    .btn-text {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      fill: #ffffff;
+    }
+    .pulse-icon {
+      transform-origin: 23px 21px;
+      animation: pulseIconArch 2.2s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Button Container Clipped -->
+  <g clip-path="url(#btnClipArch)">
+    <!-- Base Background -->
+    <rect x="1" y="1" width="156" height="40" rx="20" fill="url(#bgGradArch)" />
+
+    <!-- Animated Light Sweep Beam -->
+    <rect class="shimmer" x="0" y="0" width="45" height="42" fill="url(#shimmerBeamArch)" />
+  </g>
+
+  <!-- Button Border with Gradient -->
+  <rect x="1" y="1" width="156" height="40" rx="20" fill="none" stroke="url(#borderGradArch)" stroke-width="1.8" />
+
+  <!-- Animated Architecture / Layers Icon -->
+  <g class="pulse-icon" filter="url(#iconGlowArch)">
+    <!-- Isometric Cube / Architecture Layers -->
+    <path d="M23 12 L30 16 L23 20 L16 16 Z" fill="#38bdf8" />
+    <path d="M16 18 L23 22 L30 18 L30 22 L23 26 L16 22 Z" fill="#06b6d4" opacity="0.8" />
+    <path d="M16 24 L23 28 L30 24 L30 27 L23 31 L16 27 Z" fill="#0284c7" opacity="0.6" />
+  </g>
+
+  <!-- Button Label -->
+  <text x="38" y="26" class="btn-text">Architecture</text>
+
+  <!-- Subtle Arrow indicator -->
+  <path d="M136 18 L140 21 L136 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
+</svg>

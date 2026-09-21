@@ -20,13 +20,14 @@
     <strong>A production-ready, multi-tenant B2B SaaS platform engineered for team collaboration and enterprise scale.</strong>
   </p>
 
+  <!-- Animated Navigation Buttons -->
   <p align="center">
-    <a href="#-quickstart--local-setup">⚡ Quickstart</a> •
-    <a href="#-architectural-overview">🏗️ Architecture</a> •
-    <a href="#-key-features">✨ Features</a> •
-    <a href="#-interactive-api-documentation">📡 API Docs</a> •
-    <a href="#-pre-loaded-demo-credentials">🔑 Demo Accounts</a> •
-    <a href="#-automated-testing--docker-infrastructure">🧪 Testing &amp; Docker</a>
+    <a href="#quickstart"><img src="docs/assets/buttons/btn_quickstart.svg" alt="Quickstart" height="34" /></a>
+    <a href="#architecture"><img src="docs/assets/buttons/btn_architecture.svg" alt="Architecture" height="34" /></a>
+    <a href="#features"><img src="docs/assets/buttons/btn_features.svg" alt="Features" height="34" /></a>
+    <a href="#api-docs"><img src="docs/assets/buttons/btn_api_docs.svg" alt="API Docs" height="34" /></a>
+    <a href="#demo-accounts"><img src="docs/assets/buttons/btn_demo_accounts.svg" alt="Demo Accounts" height="34" /></a>
+    <a href="#testing-docker"><img src="docs/assets/buttons/btn_testing_docker.svg" alt="Testing &amp; Docker" height="34" /></a>
   </p>
 
 </div>
@@ -43,6 +44,7 @@ Designed for high-velocity software engineering organizations, this platform dem
 
 ---
 
+<a id="architecture"></a>
 ## 🏗️ Architectural Overview & Data Flow
 
 PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant datasets are strictly sandboxed at both ORM and API query execution levels.
@@ -59,6 +61,7 @@ PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant d
 
 ---
 
+<a id="features"></a>
 ## ✨ Key Platform Features
 
 <div align="center">
@@ -67,6 +70,7 @@ PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant d
 
 ---
 
+<a id="quickstart"></a>
 ## ⚡ Quickstart & Local Setup
 
 <div align="center">
@@ -102,6 +106,7 @@ python manage.py runserver
 
 ---
 
+<a id="demo-accounts"></a>
 ## 🔑 Pre-Loaded Demo Credentials
 
 <div align="center">
@@ -123,6 +128,7 @@ python manage.py runserver
 
 ---
 
+<a id="api-docs"></a>
 ## 📡 Interactive API Documentation
 
 <div align="center">
@@ -149,6 +155,7 @@ python manage.py runserver
 
 ---
 
+<a id="testing-docker"></a>
 ## 🧪 Automated Testing & 🐳 Docker Infrastructure
 
 <div align="center">
