@@ -1,0 +1,319 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 840" width="100%" height="840">
+  <defs>
+    <!-- Background Canvas -->
+    <linearGradient id="bgMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a13" />
+      <stop offset="50%" stop-color="#0d1424" />
+      <stop offset="100%" stop-color="#060812" />
+    </linearGradient>
+
+    <!-- Card Backgrounds -->
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19193b" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+    <linearGradient id="card2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2c3d" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+    <linearGradient id="card3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d1345" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+    <linearGradient id="card4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a392b" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+    <linearGradient id="card5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d2109" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+    <linearGradient id="card6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#420d23" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+
+    <!-- Glowing Animated Borders -->
+    <linearGradient id="b1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1">
+        <animate attributeName="stop-color" values="#6366f1;#06b6d4;#6366f1" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="b2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4">
+        <animate attributeName="stop-color" values="#06b6d4;#10b981;#06b6d4" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="b3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc">
+        <animate attributeName="stop-color" values="#c084fc;#f43f5e;#c084fc" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="b4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981">
+        <animate attributeName="stop-color" values="#10b981;#06b6d4;#10b981" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="b5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b">
+        <animate attributeName="stop-color" values="#f59e0b;#ec4899;#f59e0b" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+    <linearGradient id="b6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e">
+        <animate attributeName="stop-color" values="#f43f5e;#a855f7;#f43f5e" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#db2777" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="glowLight" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <filter id="ambientGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseCircle {
+      0%, 100% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.18); }
+    }
+    @keyframes kanbanSlide {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(95px); }
+    }
+    @keyframes barFill {
+      0%, 100% { width: 45px; }
+      50% { width: 145px; }
+    }
+    @keyframes pulseOpacity {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .amb-1 { animation: pulseCircle 6s ease-in-out infinite; transform-origin: 120px 140px; }
+    .amb-2 { animation: pulseCircle 7s ease-in-out infinite; transform-origin: 800px 420px; }
+    .amb-3 { animation: pulseCircle 5s ease-in-out infinite; transform-origin: 460px 750px; }
+    .slider { animation: kanbanSlide 3.5s ease-in-out infinite; }
+    .filling-bar { animation: barFill 4s ease-in-out infinite; }
+    .blink-dot { animation: pulseOpacity 1.5s ease-in-out infinite; }
+
+    .card-heading {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .card-item {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      fill: #cbd5e1;
+    }
+    .badge-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+    }
+  </style>
+
+  <!-- Container -->
+  <rect width="920" height="840" rx="20" fill="url(#bgMain)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="120" cy="140" r="130" fill="#6366f1" filter="url(#ambientGlow)" class="amb-1" />
+  <circle cx="800" cy="420" r="140" fill="#06b6d4" filter="url(#ambientGlow)" class="amb-2" />
+  <circle cx="460" cy="750" r="120" fill="#ec4899" filter="url(#ambientGlow)" class="amb-3" />
+
+  <!-- ================= CARD 1: ISOLATED MULTI-TENANCY ================= -->
+  <g transform="translate(30, 25)">
+    <rect width="415" height="245" rx="16" fill="url(#card1)" stroke="url(#b1)" stroke-width="1.5" />
+    <circle cx="44" cy="44" r="20" fill="#312e81" stroke="#6366f1" stroke-width="1" filter="url(#glowLight)" />
+    <text x="44" y="50" font-size="18" text-anchor="middle">&#127970;</text>
+
+    <text x="78" y="42" class="card-heading" fill="#c7d2fe">Isolated Multi-Tenancy</text>
+    <rect x="78" y="50" width="95" height="18" rx="9" fill="rgba(99, 102, 241, 0.2)" stroke="#6366f1" stroke-width="0.8" />
+    <text x="125" y="63" class="badge-label" fill="#a5b4fc" text-anchor="middle">Tenant Scoped</text>
+
+    <g transform="translate(26, 92)">
+      <circle cx="6" cy="6" r="3.5" fill="#818cf8" />
+      <text x="18" y="10" class="card-item">Dedicated namespaces with unique auto-slugs.</text>
+      <circle cx="6" cy="34" r="3.5" fill="#818cf8" />
+      <text x="18" y="38" class="card-item">Dynamic workspace switcher across org accounts.</text>
+      <circle cx="6" cy="62" r="3.5" fill="#818cf8" />
+      <text x="18" y="66" class="card-item">Strict isolation across ORM queries &amp; REST APIs.</text>
+    </g>
+
+    <g transform="translate(26, 182)">
+      <rect width="363" height="38" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(99, 102, 241, 0.3)" stroke-width="1" />
+      <circle cx="20" cy="19" r="4" fill="#34d399" class="blink-dot" />
+      <text x="34" y="23" class="badge-label" fill="#94a3b8">Active: <tspan fill="#38bdf8" font-weight="700">acme-cloud-technologies</tspan></text>
+      <rect x="275" y="9" width="75" height="20" rx="5" fill="#4f46e5" />
+      <text x="312" y="23" font-family="sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">HTTP 200 OK</text>
+    </g>
+  </g>
+
+  <!-- ================= CARD 2: GRANULAR RBAC ================= -->
+  <g transform="translate(475, 25)">
+    <rect width="415" height="245" rx="16" fill="url(#card2)" stroke="url(#b2)" stroke-width="1.5" />
+    <circle cx="44" cy="44" r="20" fill="#083344" stroke="#06b6d4" stroke-width="1" filter="url(#glowLight)" />
+    <text x="44" y="50" font-size="18" text-anchor="middle">&#128737;</text>
+
+    <text x="78" y="42" class="card-heading" fill="#a5f3fc">Granular RBAC Security</text>
+    <rect x="78" y="50" width="115" height="18" rx="9" fill="rgba(6, 182, 212, 0.2)" stroke="#06b6d4" stroke-width="0.8" />
+    <text x="135" y="63" class="badge-label" fill="#67e8f9" text-anchor="middle">Role-Based Access</text>
+
+    <g transform="translate(26, 92)">
+      <circle cx="6" cy="6" r="3.5" fill="#22d3ee" />
+      <text x="18" y="10" class="card-item"><tspan font-weight="700" fill="#e0f2fe">Owner:</tspan> Complete control, billing, destructive actions.</text>
+      <circle cx="6" cy="34" r="3.5" fill="#22d3ee" />
+      <text x="18" y="38" class="card-item"><tspan font-weight="700" fill="#e0f2fe">Admin:</tspan> Project creation, member invites, role edits.</text>
+      <circle cx="6" cy="62" r="3.5" fill="#22d3ee" />
+      <text x="18" y="66" class="card-item"><tspan font-weight="700" fill="#e0f2fe">Member / Viewer:</tspan> Task updates &amp; read-only access.</text>
+    </g>
+
+    <g transform="translate(26, 182)">
+      <rect width="363" height="38" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(6, 182, 212, 0.3)" stroke-width="1" />
+      <rect x="14" y="9" width="70" height="20" rx="5" fill="#7c3aed" />
+      <text x="49" y="23" class="badge-label" fill="#fff" text-anchor="middle">OWNER</text>
+      <text x="96" y="23" font-size="11" fill="#64748b">&gt;</text>
+      <rect x="110" y="9" width="65" height="20" rx="5" fill="#2563eb" />
+      <text x="142" y="23" class="badge-label" fill="#fff" text-anchor="middle">ADMIN</text>
+      <text x="187" y="23" font-size="11" fill="#64748b">&gt;</text>
+      <rect x="200" y="9" width="70" height="20" rx="5" fill="#059669" />
+      <text x="235" y="23" class="badge-label" fill="#fff" text-anchor="middle">MEMBER</text>
+      <text x="282" y="23" font-size="11" fill="#64748b">&gt;</text>
+      <rect x="295" y="9" width="60" height="20" rx="5" fill="#475569" />
+      <text x="325" y="23" class="badge-label" fill="#fff" text-anchor="middle">VIEWER</text>
+    </g>
+  </g>
+
+  <!-- ================= CARD 3: SOC2 AUDIT LOGGING ================= -->
+  <g transform="translate(30, 295)">
+    <rect width="415" height="245" rx="16" fill="url(#card3)" stroke="url(#b3)" stroke-width="1.5" />
+    <circle cx="44" cy="44" r="20" fill="#3b0764" stroke="#c084fc" stroke-width="1" filter="url(#glowLight)" />
+    <text x="44" y="50" font-size="18" text-anchor="middle">&#128203;</text>
+
+    <text x="78" y="42" class="card-heading" fill="#f3e8ff">SOC2 Audit Logging</text>
+    <rect x="78" y="50" width="105" height="18" rx="9" fill="rgba(168, 85, 247, 0.2)" stroke="#a855f7" stroke-width="0.8" />
+    <text x="130" y="63" class="badge-label" fill="#d8b4fe" text-anchor="middle">Enterprise Ledger</text>
+
+    <g transform="translate(26, 92)">
+      <circle cx="6" cy="6" r="3.5" fill="#c084fc" />
+      <text x="18" y="10" class="card-item">Cryptographically ordered immutable event trail.</text>
+      <circle cx="6" cy="34" r="3.5" fill="#c084fc" />
+      <text x="18" y="38" class="card-item">Captures actor, action (CREATE/ROLE), IP &amp; payload.</text>
+      <circle cx="6" cy="62" r="3.5" fill="#c084fc" />
+      <text x="18" y="66" class="card-item">Gated by Enterprise/Pro tiers with action filters.</text>
+    </g>
+
+    <g transform="translate(26, 182)">
+      <rect width="363" height="38" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(168, 85, 247, 0.3)" stroke-width="1" />
+      <rect x="12" y="9" width="85" height="20" rx="4" fill="rgba(168, 85, 247, 0.3)" stroke="#c084fc" stroke-width="1" />
+      <text x="54" y="23" class="badge-label" fill="#f3e8ff" text-anchor="middle">ROLE_CHANGE</text>
+      <text x="108" y="23" class="card-item" font-size="11" fill="#e2e8f0">admin &#8594; Promoted sarah_lead</text>
+    </g>
+  </g>
+
+  <!-- ================= CARD 4: KANBAN BOARD ================= -->
+  <g transform="translate(475, 295)">
+    <rect width="415" height="245" rx="16" fill="url(#card4)" stroke="url(#b4)" stroke-width="1.5" />
+    <circle cx="44" cy="44" r="20" fill="#064e3b" stroke="#10b981" stroke-width="1" filter="url(#glowLight)" />
+    <text x="44" y="50" font-size="18" text-anchor="middle">&#128202;</text>
+
+    <text x="78" y="42" class="card-heading" fill="#d1fae5">Interactive Kanban Board</text>
+    <rect x="78" y="50" width="115" height="18" rx="9" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8" />
+    <text x="135" y="63" class="badge-label" fill="#6ee7b7" text-anchor="middle">AJAX Drag &amp; Drop</text>
+
+    <g transform="translate(26, 92)">
+      <circle cx="6" cy="6" r="3.5" fill="#34d399" />
+      <text x="18" y="10" class="card-item">4 Pipeline Columns: To Do, In Progress, Review, Done.</text>
+      <circle cx="6" cy="34" r="3.5" fill="#34d399" />
+      <text x="18" y="38" class="card-item">HTML5 native drag &amp; drop with instant status sync.</text>
+      <circle cx="6" cy="62" r="3.5" fill="#34d399" />
+      <text x="18" y="66" class="card-item">Optimistic DOM rendering with automatic audit logging.</text>
+    </g>
+
+    <g transform="translate(26, 182)">
+      <rect width="363" height="38" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(168, 85, 247, 0.3)" stroke-width="1" />
+      <rect x="12" y="9" width="75" height="20" rx="4" fill="rgba(255,255,255,0.06)" />
+      <text x="49" y="23" class="badge-label" fill="#94a3b8" text-anchor="middle">TO DO</text>
+
+      <rect x="96" y="9" width="95" height="20" rx="4" fill="rgba(99, 102, 241, 0.15)" stroke="#6366f1" stroke-width="1" />
+      <text x="143" y="23" class="badge-label" fill="#818cf8" text-anchor="middle">IN PROGRESS</text>
+
+      <rect x="200" y="9" width="75" height="20" rx="4" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1" />
+      <text x="237" y="23" class="badge-label" fill="#34d399" text-anchor="middle">DONE</text>
+
+      <g class="slider" transform="translate(12, 9)">
+        <rect width="65" height="20" rx="4" fill="#10b981" />
+        <text x="32" y="14" font-family="sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">Task #402</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ================= CARD 5: OPENAPI 3.0 ================= -->
+  <g transform="translate(30, 565)">
+    <rect width="415" height="245" rx="16" fill="url(#card5)" stroke="url(#b5)" stroke-width="1.5" />
+    <circle cx="44" cy="44" r="20" fill="#451a03" stroke="#f59e0b" stroke-width="1" filter="url(#glowLight)" />
+    <text x="44" y="50" font-size="18" text-anchor="middle">&#9889;</text>
+
+    <text x="78" y="42" class="card-heading" fill="#fef3c7">Self-Documenting APIs</text>
+    <rect x="78" y="50" width="115" height="18" rx="9" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="0.8" />
+    <text x="135" y="63" class="badge-label" fill="#fde68a" text-anchor="middle">OpenAPI 3.0 Swagger</text>
+
+    <g transform="translate(26, 92)">
+      <circle cx="6" cy="6" r="3.5" fill="#fbbf24" />
+      <text x="18" y="10" class="card-item">Automated OpenAPI 3.0 generation via drf-spectacular.</text>
+      <circle cx="6" cy="34" r="3.5" fill="#fbbf24" />
+      <text x="18" y="38" class="card-item">Interactive Swagger UI explorer with live test runners.</text>
+      <circle cx="6" cy="62" r="3.5" fill="#fbbf24" />
+      <text x="18" y="66" class="card-item">Token &amp; Session auth headers with payload validation.</text>
+    </g>
+
+    <g transform="translate(26, 182)">
+      <rect width="363" height="38" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(245, 158, 11, 0.3)" stroke-width="1" />
+      <rect x="12" y="9" width="52" height="20" rx="4" fill="#16a34a" />
+      <text x="38" y="23" class="badge-label" fill="#ffffff" text-anchor="middle">GET</text>
+      <text x="74" y="23" class="badge-label" fill="#fde68a">/api/v1/workspaces/{slug}/tasks/</text>
+      <circle cx="340" cy="19" r="4" fill="#fbbf24" class="blink-dot" />
+    </g>
+  </g>
+
+  <!-- ================= CARD 6: SUBSCRIPTION & QUOTAS ================= -->
+  <g transform="translate(475, 565)">
+    <rect width="415" height="245" rx="16" fill="url(#card6)" stroke="url(#b6)" stroke-width="1.5" />
+    <circle cx="44" cy="44" r="20" fill="#4c0519" stroke="#f43f5e" stroke-width="1" filter="url(#glowLight)" />
+    <text x="44" y="50" font-size="18" text-anchor="middle">&#128142;</text>
+
+    <text x="78" y="42" class="card-heading" fill="#ffe4e6">Subscription &amp; Quotas</text>
+    <rect x="78" y="50" width="115" height="18" rx="9" fill="rgba(244, 63, 94, 0.2)" stroke="#f43f5e" stroke-width="0.8" />
+    <text x="135" y="63" class="badge-label" fill="#fca5a5" text-anchor="middle">Feature Gated Tiers</text>
+
+    <g transform="translate(26, 92)">
+      <circle cx="6" cy="6" r="3.5" fill="#fb7185" />
+      <text x="18" y="10" class="card-item">3 Subscription Tiers: Free ($0), Pro ($49), Enterprise ($199).</text>
+      <circle cx="6" cy="34" r="3.5" fill="#fb7185" />
+      <text x="18" y="38" class="card-item">Dynamic seat capacity throttling (3 vs 15 vs 100 members).</text>
+      <circle cx="6" cy="62" r="3.5" fill="#fb7185" />
+      <text x="18" y="66" class="card-item">Instant mock checkout upgrade with audit log integration.</text>
+    </g>
+
+    <g transform="translate(26, 182)">
+      <rect width="363" height="38" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(244, 63, 94, 0.3)" stroke-width="1" />
+      <text x="14" y="23" class="badge-label" fill="#fda4af">Seats: 12 / 15</text>
+      <rect x="110" y="14" width="160" height="10" rx="5" fill="rgba(255,255,255,0.1)" />
+      <rect x="110" y="14" height="10" rx="5" fill="url(#b6)" class="filling-bar" />
+      <rect x="290" y="9" width="60" height="20" rx="5" fill="#e11d48" />
+      <text x="320" y="23" class="badge-label" fill="#ffffff" text-anchor="middle">PRO TIER</text>
+    </g>
+  </g>
+
+</svg>

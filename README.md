@@ -61,7 +61,7 @@ PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant d
 ## ✨ Key Platform Features
 
 <div align="center">
-  <img src="docs/assets/key_features_animated.svg" alt="PulseWorkspace Key Features Showcase" width="100%" />
+  <img src="docs/assets/features_showcase.svg" alt="PulseWorkspace Key Features Showcase" width="100%" />
 </div>
 
 ---
