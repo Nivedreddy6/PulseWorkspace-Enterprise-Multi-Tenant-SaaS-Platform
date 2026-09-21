@@ -105,7 +105,7 @@ python manage.py runserver
 ## 🔑 Pre-Loaded Demo Credentials
 
 <div align="center">
-  <img src="docs/assets/demo_credentials_animated.svg" alt="PulseWorkspace Demo Credentials Showcase" width="100%" />
+  <img src="docs/assets/personas_credentials.svg" alt="PulseWorkspace Demo Credentials Showcase" width="100%" />
 </div>
 
 <br/>
