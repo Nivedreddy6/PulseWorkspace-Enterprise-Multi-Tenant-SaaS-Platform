@@ -154,7 +154,7 @@
       <text x="20" y="26" font-size="18" text-anchor="middle">🏢</text>
     </g>
 
-    <!-- Title & Badge -->
+    <!-- Title &amp; Badge -->
     <text x="76" y="44" class="title-text" fill="#c7d2fe">Isolated Multi-Tenancy</text>
     <rect x="76" y="52" width="95" height="18" rx="9" fill="rgba(99, 102, 241, 0.2)" stroke="#6366f1" stroke-width="0.8" />
     <text x="123" y="65" class="tag-text" fill="#a5b4fc" text-anchor="middle">Tenant Scoped</text>
@@ -193,7 +193,7 @@
       <text x="20" y="26" font-size="18" text-anchor="middle">🛡️</text>
     </g>
 
-    <!-- Title & Badge -->
+    <!-- Title &amp; Badge -->
     <text x="76" y="44" class="title-text" fill="#a5f3fc">Granular RBAC Security</text>
     <rect x="76" y="52" width="115" height="18" rx="9" fill="rgba(6, 182, 212, 0.2)" stroke="#06b6d4" stroke-width="0.8" />
     <text x="133" y="65" class="tag-text" fill="#67e8f9" text-anchor="middle">Role-Based Access</text>
@@ -239,7 +239,7 @@
       <text x="20" y="26" font-size="18" text-anchor="middle">📋</text>
     </g>
 
-    <!-- Title & Badge -->
+    <!-- Title &amp; Badge -->
     <text x="76" y="44" class="title-text" fill="#f3e8ff">SOC2 Audit Logging</text>
     <rect x="76" y="52" width="105" height="18" rx="9" fill="rgba(168, 85, 247, 0.2)" stroke="#a855f7" stroke-width="0.8" />
     <text x="128" y="65" class="tag-text" fill="#d8b4fe" text-anchor="middle">Enterprise Ledger</text>
@@ -261,7 +261,7 @@
       <rect width="363" height="40" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(168, 85, 247, 0.3)" stroke-width="1" />
       <rect x="12" y="10" width="85" height="20" rx="4" fill="rgba(168, 85, 247, 0.3)" stroke="#c084fc" stroke-width="1" />
       <text x="54" y="24" class="tag-text" fill="#f3e8ff" text-anchor="middle">ROLE_CHANGE</text>
-      <text x="110" y="24" class="bullet-text" font-size="11" fill="#e2e8f0">admin &rarr; Promoted sarah_lead</text>
+      <text x="110" y="24" class="bullet-text" font-size="11" fill="#e2e8f0">admin &#8594; Promoted sarah_lead</text>
       <!-- Animated Scanner Light -->
       <line x1="0" y1="2" x2="0" y2="38" stroke="#f43f5e" stroke-width="2" class="scanner-line" opacity="0.6" />
     </g>
@@ -279,7 +279,7 @@
       <text x="20" y="26" font-size="18" text-anchor="middle">📊</text>
     </g>
 
-    <!-- Title & Badge -->
+    <!-- Title &amp; Badge -->
     <text x="76" y="44" class="title-text" fill="#d1fae5">Interactive Kanban Board</text>
     <rect x="76" y="52" width="115" height="18" rx="9" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8" />
     <text x="133" y="65" class="tag-text" fill="#6ee7b7" text-anchor="middle">AJAX Drag &amp; Drop</text>
@@ -318,7 +318,7 @@
   </g>
 
   <!-- ==========================================
-       CARD 5: OPENAPI 3.0 & SWAGGER (Bottom Left)
+       CARD 5: OPENAPI 3.0 &amp; SWAGGER (Bottom Left)
        ========================================== -->
   <g transform="translate(30, 580)">
     <rect width="415" height="250" rx="16" fill="url(#cardBg5)" stroke="url(#borderAnim5)" stroke-width="1.5" />
@@ -329,7 +329,7 @@
       <text x="20" y="26" font-size="18" text-anchor="middle">⚡</text>
     </g>
 
-    <!-- Title & Badge -->
+    <!-- Title &amp; Badge -->
     <text x="76" y="44" class="title-text" fill="#fef3c7">Self-Documenting APIs</text>
     <rect x="76" y="52" width="115" height="18" rx="9" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="0.8" />
     <text x="133" y="65" class="tag-text" fill="#fde68a" text-anchor="middle">OpenAPI 3.0 Swagger</text>
@@ -357,7 +357,7 @@
   </g>
 
   <!-- ==========================================
-       CARD 6: SAAS TIERS & QUOTAS (Bottom Right)
+       CARD 6: SAAS TIERS &amp; QUOTAS (Bottom Right)
        ========================================== -->
   <g transform="translate(475, 580)">
     <rect width="415" height="250" rx="16" fill="url(#cardBg6)" stroke="url(#borderAnim6)" stroke-width="1.5" />
@@ -368,7 +368,7 @@
       <text x="20" y="26" font-size="18" text-anchor="middle">💎</text>
     </g>
 
-    <!-- Title & Badge -->
+    <!-- Title &amp; Badge -->
     <text x="76" y="44" class="title-text" fill="#ffe4e6">Subscription &amp; Quotas</text>
     <rect x="76" y="52" width="115" height="18" rx="9" fill="rgba(244, 63, 94, 0.2)" stroke="#f43f5e" stroke-width="0.8" />
     <text x="133" y="65" class="tag-text" fill="#fca5a5" text-anchor="middle">Feature Gated Tiers</text>
