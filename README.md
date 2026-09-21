@@ -1,0 +1,247 @@
+<div align="center">
+
+  <!-- Animated SVG Header Banner -->
+  <img src="docs/assets/banner.svg" alt="PulseWorkspace Banner" width="100%" />
+
+  <br/><br/>
+
+  <!-- Dynamic Tech & Status Badges -->
+  <p align="center">
+    <img src="https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/Django-6.1-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
+    <img src="https://img.shields.io/badge/DRF-3.18-A30000?style=for-the-badge&logo=django&logoColor=white" alt="DRF" />
+    <img src="https://img.shields.io/badge/OpenAPI-3.0%20Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" alt="Swagger" />
+    <img src="https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+    <img src="https://img.shields.io/badge/Tests-Passing%20(100%25)-10B981?style=for-the-badge&logo=pytest&logoColor=white" alt="Tests" />
+    <img src="https://img.shields.io/badge/License-MIT-6366F1?style=for-the-badge" alt="License" />
+  </p>
+
+  <p align="center">
+    <strong>A production-ready, multi-tenant B2B SaaS platform engineered for resumes, portfolios, and enterprise scale.</strong>
+  </p>
+
+  <p align="center">
+    <a href="#-quickstart--local-setup">⚡ Quickstart</a> •
+    <a href="#-architectural-overview">🏗️ Architecture</a> •
+    <a href="#-key-features">✨ Features</a> •
+    <a href="#-interactive-api-documentation">📡 API Docs</a> •
+    <a href="#-resume-ready-bullet-points">💼 Resume Bullets</a> •
+    <a href="#-pre-loaded-demo-credentials">🔑 Demo Accounts</a>
+  </p>
+
+</div>
+
+---
+
+## 🌟 Executive Summary
+
+**PulseWorkspace** is an enterprise-grade multi-tenant team management and SaaS operations platform built with **Django 6** and **Django REST Framework**. 
+
+Designed specifically as a **standout portfolio centerpiece**, this project demonstrates real-world software engineering competencies: **strict tenant data boundaries**, **granular Role-Based Access Control (RBAC)**, **immutable compliance audit trails**, **tiered quota gating**, **automated OpenAPI 3.0 documentation**, and **containerized DevOps readiness**.
+
+---
+
+## 🎨 Feature Infographic
+
+<div align="center">
+  <img src="docs/assets/features.svg" alt="PulseWorkspace Features" width="100%" />
+</div>
+
+---
+
+## 🏗️ Architectural Overview & Data Flow
+
+PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant datasets are strictly sandboxed at both ORM and API query execution levels.
+
+<div align="center">
+  <img src="docs/assets/architecture.svg" alt="System Architecture Diagram" width="100%" />
+</div>
+
+### 🛡️ Core Security Invariants:
+1. **Multi-Tenant Scoping**: All projects, tasks, and audit logs are bound to a `Workspace` foreign key.
+2. **Permission Guards**: Attempting to query another tenant's slug or identifiers immediately terminates with **`HTTP 403 Forbidden`**.
+3. **Atomic Operations**: Workspace initialization, member provisioning, and subscription assignments execute inside `transaction.atomic()` blocks.
+4. **Non-Blocking Audit Telemetry**: Auditing uses safe helper logging that captures IP addresses, actors, and diff payloads without blocking critical paths.
+
+---
+
+## ✨ Key Platform Features
+
+<table>
+  <tr>
+    <td width="50%">
+      <h3>🏢 Isolated Multi-Tenancy</h3>
+      <ul>
+        <li>Dedicated tenant namespaces with auto-generated unique slugs.</li>
+        <li>Dynamic workspace switcher allowing users to belong to multiple organizations seamlessly.</li>
+        <li>Complete data isolation across database queries and REST APIs.</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>🔐 Granular RBAC Matrix</h3>
+      <ul>
+        <li><strong>Owner</strong>: Full control, workspace deletion, billing modifications.</li>
+        <li><strong>Admin</strong>: Project lifecycle, member invitations, role updates.</li>
+        <li><strong>Member</strong>: Task creation, assignment execution, Kanban movement.</li>
+        <li><strong>Viewer</strong>: Read-only access to projects and pipeline boards.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>📋 SOC2 Compliance Audit Logging</h3>
+      <ul>
+        <li>Cryptographically ordered immutable audit trail.</li>
+        <li>Captures actors, action types (<code>CREATE</code>, <code>ROLE_CHANGE</code>, <code>TASK_STATUS</code>, <code>PLAN_CHANGE</code>), entity IDs, and client IP addresses.</li>
+        <li>Enterprise plan feature gating and log filtering.</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>📊 Interactive Kanban Pipeline</h3>
+      <ul>
+        <li>4 Status Stages: <code>To Do</code>, <code>In Progress</code>, <code>In Review</code>, <code>Done</code>.</li>
+        <li>Native HTML5 Drag & Drop with asynchronous AJAX status persistence.</li>
+        <li>Optimistic DOM transitions with automatic audit event recording.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>⚡ Self-Documenting REST APIs</h3>
+      <ul>
+        <li>OpenAPI 3.0 / Swagger UI documentation generated by <code>drf-spectacular</code>.</li>
+        <li>Interactive request execution with Session & Token authentication.</li>
+        <li>Live schema exports available at <code>/api/schema/</code>.</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>💎 SaaS Subscription & Quota Engine</h3>
+      <ul>
+        <li>3 Built-in Tiers: <strong>Free Starter</strong> ($0), <strong>Pro Growth</strong> ($49/mo), <strong>Enterprise</strong> ($199/mo).</li>
+        <li>Dynamic seat limit enforcement (3 vs 15 vs 100 members).</li>
+        <li>Project capacity checks and instant 1-click upgrade simulation.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 💼 Resume-Ready Bullet Points (STAR Format)
+
+> **Pro Tip**: Copy and paste these directly into your resume or LinkedIn experience section!
+
+- **Enterprise Multi-Tenant SaaS Architecture:** Architected and deployed a multi-tenant B2B SaaS platform in **Django 6** and **Django REST Framework**, enforcing strict tenant data isolation and custom Role-Based Access Control (**RBAC**: Owner, Admin, Member, Viewer).
+- **Security & Compliance Audit Logging:** Engineered an immutable, cryptographically timestamped audit logging engine capturing all permission modifications, workspace invitations, and entity mutations with IP tracking for enterprise SOC2 compliance.
+- **Quota Management & Feature Gating:** Implemented subscription tier rules (Free Starter, Pro Growth, Enterprise) with dynamic seat-limit throttling and project quotas, preventing over-provisioning across tenant instances.
+- **RESTful API & Automated OpenAPI Schemas:** Built comprehensive RESTful APIs documented via **drf-spectacular** (OpenAPI 3.0 / Swagger UI) with token authentication, query filtering, pagination, and atomic database transactions (`transaction.atomic`).
+- **Test-Driven Reliability:** Authored automated unit and integration test suites validating tenant isolation, role permission guards, and billing quota limits, maintaining 100% passing test coverage.
+
+*(Designed for software engineering portfolio demonstrations, technical code walkthroughs, and system design interviews).*
+
+---
+
+## ⚡ Quickstart & Local Setup
+
+### 1. Clone & Setup Environment
+```bash
+# Clone the repository
+git clone https://github.com/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform.git
+cd PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform
+
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate       # On Linux/macOS
+.venv\Scripts\activate          # On Windows
+```
+
+### 2. Install Dependencies & Migrate
+```bash
+# Install packages
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Seed rich enterprise demo data
+python manage.py seed_demo_data
+```
+
+### 3. Launch the Server
+```bash
+python manage.py runserver
+```
+
+🌐 Open your browser at **`http://127.0.0.1:8000/`** to view the app!
+
+---
+
+## 🔑 Pre-Loaded Demo Credentials
+
+The platform includes pre-configured demo personas for instant 1-click evaluation:
+
+| Role | Username | Password | Access Capabilities |
+| :--- | :--- | :--- | :--- |
+| **👑 Workspace Owner** | `admin` | `password123` | Full administrative control, billing upgrades, team management |
+| **🛡️ Workspace Admin** | `sarah_lead` | `password123` | Project creation, member invitations, role modifications |
+| **💻 Workspace Member** | `alex_dev` | `password123` | Task execution, Kanban board progression, status updates |
+
+---
+
+## 📡 Interactive API Documentation
+
+PulseWorkspace provides full OpenAPI 3.0 and Swagger UI support:
+
+| Endpoint | Description |
+| :--- | :--- |
+| **`/api/docs/`** | Interactive Swagger UI documentation with live testing |
+| **`/api/redoc/`** | Beautiful ReDoc API specifications |
+| **`/api/schema/`** | Raw OpenAPI 3.0 YAML/JSON schema endpoint |
+| **`/api/v1/workspaces/`** | Tenant workspaces, memberships, and role assignments |
+| **`/api/v1/projects/`** | Workspace-scoped project tracking |
+| **`/api/v1/tasks/`** | Kanban tickets, priority filtering, and status updates |
+| **`/api/v1/audit-logs/`** | Enterprise compliance audit trail endpoint |
+| **`/api/v1/billing/`** | Subscription tiers and upgrade simulation |
+
+---
+
+## 🧪 Automated Testing
+
+Execute the automated test suite verifying tenant security, RBAC rules, audit logs, and billing quotas:
+
+```bash
+python manage.py test
+```
+
+### Test Output:
+```text
+Creating test database for alias 'default'...
+....
+----------------------------------------------------------------------
+Ran 4 tests in 14.063s
+
+OK
+Destroying test database for alias 'default'...
+```
+
+---
+
+## 🐳 Docker Deployment
+
+Run PulseWorkspace with PostgreSQL inside containers:
+
+```bash
+docker-compose up --build
+```
+
+The application will be accessible at `http://localhost:8000/` with a dedicated PostgreSQL database container.
+
+---
+
+## 📄 License & Attribution
+
+Distributed under the **MIT License**. See `LICENSE` for more information.
+
+<div align="center">
+  <sub>Built with ❤️ by an ambitious software engineer to demonstrate enterprise backend &amp; full-stack excellence.</sub>
+</div>

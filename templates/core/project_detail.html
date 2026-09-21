@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{% block page_title %}{{ project.name }}{% endblock %}
+
+{% block topbar_actions %}
+<a href="{% url 'projects' %}" class="btn btn-secondary btn-sm">
+  <i class="fa-solid fa-arrow-left"></i> All Projects
+</a>
+<button type="button" class="btn btn-primary btn-sm" data-open-modal="newTaskModal">
+  <i class="fa-solid fa-plus"></i> Add Task
+</button>
+{% endblock %}
+
+{% block content %}
+<!-- Project Metadata Card -->
+<div class="glass-panel">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
+    <div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <h2 style="font-size:1.5rem; font-weight:800;">{{ project.name }}</h2>
+        <span class="badge {% if project.status == 'ACTIVE' %}badge-green{% elif project.status == 'PLANNING' %}badge-blue{% else %}badge-yellow{% endif %}">
+          {{ project.get_status_display }}
+        </span>
+      </div>
+      <p style="color:var(--text-muted); font-size:0.92rem; margin-top:6px; max-width:700px;">
+        {{ project.description|default:"No description provided." }}
+      </p>
+    </div>
+
+    <div style="text-align:right;">
+      <div style="font-size:0.8rem; color:var(--text-subtle);">Target Date</div>
+      <div style="font-size:0.95rem; font-weight:600; color:var(--text-main); margin-top:2px;">
+        {{ project.target_date|default:"Flexible" }}
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg-surface); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-subtle); margin-top:16px;">
+    <div style="display:flex; justify-content:space-between; font-size:0.82rem; color:var(--text-subtle); margin-bottom:6px;">
+      <span>Completion Rate</span>
+      <span style="font-weight:700; color:var(--text-main);">{{ project.completed_tasks }} of {{ project.total_tasks }} Tasks Done ({{ project.progress_percentage }}%)</span>
+    </div>
+    <div class="progress-bar-container" style="height:10px;">
+      <div class="progress-bar-fill" style="width: {{ project.progress_percentage }}%;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Project Tasks Table -->
+<div class="glass-panel">
+  <div class="panel-header">
+    <h3 class="panel-title">Tasks</h3>
+    <button type="button" class="btn btn-secondary btn-sm" data-open-modal="newTaskModal">
+      <i class="fa-solid fa-plus"></i> New Task
+    </button>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Task Title</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Assignee</th>
+        <th>Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr>
+        <td>
+          <div style="font-weight:600; color:var(--text-main);">{{ task.title }}</div>
+          {% if task.description %}
+            <div style="font-size:0.75rem; color:var(--text-subtle);">{{ task.description|truncatewords:8 }}</div>
+          {% endif %}
+        </td>
+        <td>
+          <span class="badge {% if task.status == 'DONE' %}badge-green{% elif task.status == 'IN_PROGRESS' %}badge-blue{% else %}badge-yellow{% endif %}">
+            {{ task.get_status_display }}
+          </span>
+        </td>
+        <td>
+          <span class="badge {% if task.priority == 'URGENT' %}badge-red{% elif task.priority == 'HIGH' %}badge-yellow{% else %}badge-blue{% endif %}">
+            {{ task.get_priority_display }}
+          </span>
+        </td>
+        <td>
+          {% if task.assignee %}
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div class="avatar-circle" style="width:24px; height:24px; font-size:0.7rem; background-color:{{ task.assignee.avatar_color }};">
+                {{ task.assignee.initials }}
+              </div>
+              <span>{{ task.assignee.display_name }}</span>
+            </div>
+          {% else %}
+            <span style="color:var(--text-subtle);">Unassigned</span>
+          {% endif %}
+        </td>
+        <td>{{ task.due_date|default:"&mdash;" }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" style="text-align:center; padding:36px 0; color:var(--text-subtle);">
+          No tasks currently logged for this project.
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal: New Task -->
+<div id="newTaskModal" class="modal-overlay">
+  <div class="modal-content">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h3 class="modal-title" style="margin-bottom:0;">Add Task to {{ project.name }}</h3>
+      <button type="button" style="background:none; border:none; color:var(--text-subtle); font-size:1.2rem; cursor:pointer;" data-close-modal>&times;</button>
+    </div>
+    
+    <form method="POST" action="{% url 'project_detail' project.slug %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="form-label" for="task_title">Task Title</label>
+        <input type="text" id="task_title" name="title" class="form-control" placeholder="e.g. Implement OAuth2 client" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="task_desc">Description</label>
+        <textarea id="task_desc" name="description" class="form-control" rows="3" placeholder="Acceptance criteria, technical notes..."></textarea>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label class="form-label" for="task_status">Status</label>
+          <select id="task_status" name="status" class="form-control">
+            <option value="TODO">To Do</option>
+            <option value="IN_PROGRESS">In Progress</option>
+            <option value="IN_REVIEW">In Review</option>
+            <option value="DONE">Done</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="task_priority">Priority</label>
+          <select id="task_priority" name="priority" class="form-control">
+            <option value="LOW">Low</option>
+            <option value="MEDIUM" selected>Medium</option>
+            <option value="HIGH">High</option>
+            <option value="URGENT">Urgent</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label class="form-label" for="task_assignee">Assignee</label>
+          <select id="task_assignee" name="assignee_id" class="form-control">
+            <option value="">Unassigned</option>
+            {% for mem in members %}
+              <option value="{{ mem.user.id }}">{{ mem.user.display_name }} ({{ mem.role }})</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="task_due">Due Date</label>
+          <input type="date" id="task_due" name="due_date" class="form-control">
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+        <button type="button" class="btn btn-secondary" data-close-modal>Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Task</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

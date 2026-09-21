@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}PulseWorkspace | Enterprise SaaS & Team Management{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    {% if user.is_authenticated %}
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+        <div class="brand-name">PulseWorkspace</div>
+      </div>
+
+      <!-- Workspace Tenant Switcher -->
+      <div class="workspace-switcher">
+        <button id="workspaceSelectBtn" class="workspace-select-btn" type="button">
+          <div style="display:flex; align-items:center; gap:8px; overflow:hidden;">
+            <i class="fa-solid fa-building" style="color:var(--accent-primary);"></i>
+            <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-weight:600;">
+              {{ active_workspace.name|default:"Select Workspace" }}
+            </span>
+          </div>
+          <i class="fa-solid fa-chevron-down" style="font-size:0.75rem; color:var(--text-subtle);"></i>
+        </button>
+
+        <div id="workspaceDropdownMenu" class="workspace-dropdown">
+          <div style="font-size:0.7rem; color:var(--text-subtle); padding:6px 10px; font-weight:700; text-transform:uppercase;">
+            Switch Workspace
+          </div>
+          {% for ws in user_workspaces %}
+            <a href="{% url 'switch_workspace' ws.slug %}" class="workspace-dropdown-item {% if ws.id == active_workspace.id %}active{% endif %}">
+              <i class="fa-solid fa-circle-check" style="color:{% if ws.id == active_workspace.id %}var(--accent-emerald){% else %}transparent{% endif %}; font-size:0.7rem; margin-right:6px;"></i>
+              {{ ws.name }}
+            </a>
+          {% empty %}
+            <span style="font-size:0.8rem; color:var(--text-subtle); padding:6px 10px;">No workspaces</span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Nav Menu Items -->
+      <nav class="sidebar-nav">
+        <div class="nav-label">Workspace</div>
+        <a href="{% url 'dashboard' %}" class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+          <i class="fa-solid fa-chart-pie" style="width:20px;"></i>
+          <span>Overview</span>
+        </a>
+        <a href="{% url 'projects' %}" class="nav-link {% if 'project' in request.resolver_match.url_name %}active{% endif %}">
+          <i class="fa-solid fa-folder-tree" style="width:20px;"></i>
+          <span>Projects</span>
+        </a>
+        <a href="{% url 'kanban' %}" class="nav-link {% if request.resolver_match.url_name == 'kanban' %}active{% endif %}">
+          <i class="fa-solid fa-table-columns" style="width:20px;"></i>
+          <span>Kanban Board</span>
+        </a>
+
+        <div class="nav-label" style="margin-top:16px;">Enterprise & Ops</div>
+        <a href="{% url 'team' %}" class="nav-link {% if request.resolver_match.url_name == 'team' %}active{% endif %}">
+          <i class="fa-solid fa-users" style="width:20px;"></i>
+          <span>Team & RBAC</span>
+        </a>
+        <a href="{% url 'audit_logs' %}" class="nav-link {% if request.resolver_match.url_name == 'audit_logs' %}active{% endif %}">
+          <i class="fa-solid fa-shield-halved" style="width:20px;"></i>
+          <span>Audit Logs</span>
+        </a>
+        <a href="{% url 'billing' %}" class="nav-link {% if request.resolver_match.url_name == 'billing' %}active{% endif %}">
+          <i class="fa-solid fa-credit-card" style="width:20px;"></i>
+          <span>Subscription & Billing</span>
+        </a>
+
+        <div class="nav-label" style="margin-top:16px;">Developer</div>
+        <a href="{% url 'swagger-ui' %}" target="_blank" class="nav-link">
+          <i class="fa-solid fa-bolt" style="width:20px; color:var(--accent-amber);"></i>
+          <span>Swagger API Docs</span>
+          <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left:auto; font-size:0.75rem; color:var(--text-subtle);"></i>
+        </a>
+      </nav>
+
+      <!-- Sidebar User Profile Footer -->
+      <div class="sidebar-footer">
+        <div class="user-badge">
+          <div class="avatar-circle" style="background-color: {{ user.avatar_color|default:'#4f46e5' }};">
+            {{ user.initials }}
+          </div>
+          <div class="user-info">
+            <span class="user-name">{{ user.display_name }}</span>
+            <span class="user-role-badge">{{ user_workspace_role|default:"Member" }}</span>
+          </div>
+        </div>
+        <a href="{% url 'logout' %}" title="Log out" style="color:var(--text-subtle); font-size:1rem; transition:0.2s;" onmouseover="this.style.color='#fb7185'" onmouseout="this.style.color='var(--text-subtle)'">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </a>
+      </div>
+    </aside>
+    {% endif %}
+
+    <!-- Main Viewport -->
+    <div class="main-wrapper">
+      {% if user.is_authenticated %}
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 class="page-title">{% block page_title %}Dashboard{% endblock %}</h1>
+          {% if active_plan %}
+            <span class="badge {% if active_plan.tier_code == 'ENTERPRISE' %}badge-purple{% elif active_plan.tier_code == 'PRO' %}badge-blue{% else %}badge-yellow{% endif %}">
+              {{ active_plan.name }}
+            </span>
+          {% endif %}
+        </div>
+        <div class="topbar-right">
+          {% block topbar_actions %}{% endblock %}
+        </div>
+      </header>
+      {% endif %}
+
+      <main class="content-body">
+        {% if messages %}
+        <div class="messages-container">
+          {% for message in messages %}
+          <div class="alert-pill {% if message.tags %}{{ message.tags }}{% else %}info{% endif %}">
+            <span>{{ message }}</span>
+            <button type="button" style="background:none; border:none; color:inherit; cursor:pointer;" onclick="this.parentElement.remove();">&times;</button>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </div>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

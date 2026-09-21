@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Audit Trail & Compliance Logs{% endblock %}
+
+{% block content %}
+<div class="glass-panel">
+  <div class="panel-header" style="flex-wrap:wrap; gap:16px;">
+    <div>
+      <h2 class="panel-title">Immutable Workspace Audit Trail</h2>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:2px;">
+        Cryptographically ordered log of user interactions, permission updates, and entity mutations for enterprise SOC2 compliance.
+      </p>
+    </div>
+
+    <!-- Filter Form -->
+    <form method="GET" action="{% url 'audit_logs' %}" style="display:flex; align-items:center; gap:8px;">
+      <select name="action" class="form-control" style="width:auto; padding:6px 12px; font-size:0.85rem;" onchange="this.form.submit()">
+        <option value="">All Action Types</option>
+        {% for code, label in action_choices %}
+          <option value="{{ code }}" {% if selected_action == code %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      {% if selected_action %}
+        <a href="{% url 'audit_logs' %}" class="btn btn-secondary btn-sm">Clear</a>
+      {% endif %}
+    </form>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Actor</th>
+        <th>Action</th>
+        <th>Resource</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in logs %}
+      <tr>
+        <td style="font-size:0.8rem; color:var(--text-subtle); white-space:nowrap;">
+          {{ log.created_at|date:"Y-m-d H:i:s" }}
+        </td>
+        <td>
+          {% if log.actor %}
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div class="avatar-circle" style="width:22px; height:22px; font-size:0.65rem; background-color:{{ log.actor.avatar_color|default:'#4f46e5' }};">
+                {{ log.actor.initials }}
+              </div>
+              <span style="font-weight:600; color:var(--text-main);">{{ log.actor.username }}</span>
+            </div>
+          {% else %}
+            <span style="color:var(--text-subtle); font-style:italic;">System</span>
+          {% endif %}
+        </td>
+        <td>
+          <span class="badge {% if log.action == 'CREATE' %}badge-green{% elif log.action == 'DELETE' %}badge-red{% elif log.action == 'ROLE_CHANGE' %}badge-purple{% elif log.action == 'PLAN_CHANGE' %}badge-yellow{% else %}badge-blue{% endif %}">
+            {{ log.get_action_display }}
+          </span>
+        </td>
+        <td>
+          <span class="code-chip">{{ log.resource_type }}{% if log.resource_id %} #{{ log.resource_id }}{% endif %}</span>
+        </td>
+        <td style="color:var(--text-main); font-size:0.86rem;">
+          {{ log.description }}
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" style="text-align:center; padding:36px 0; color:var(--text-subtle);">
+          No audit logs found matching criteria.
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

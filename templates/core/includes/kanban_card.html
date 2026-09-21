@@ -1,0 +1,33 @@
+<div class="task-card" data-task-id="{{ task.id }}">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+    <span class="code-chip" style="font-size:0.7rem;">{{ task.project.name|truncatechars:18 }}</span>
+    <span class="badge {% if task.priority == 'URGENT' %}badge-red{% elif task.priority == 'HIGH' %}badge-yellow{% else %}badge-blue{% endif %}" style="font-size:0.65rem; padding:2px 6px;">
+      {{ task.get_priority_display }}
+    </span>
+  </div>
+
+  <div class="task-card-title">{{ task.title }}</div>
+
+  {% if task.description %}
+    <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:8px; line-height:1.3;">
+      {{ task.description|truncatewords:6 }}
+    </div>
+  {% endif %}
+
+  <div class="task-card-meta">
+    <div style="display:flex; align-items:center; gap:6px;">
+      {% if task.assignee %}
+        <div class="avatar-circle" style="width:20px; height:20px; font-size:0.6rem; background-color:{{ task.assignee.avatar_color }};" title="{{ task.assignee.display_name }}">
+          {{ task.assignee.initials }}
+        </div>
+        <span>{{ task.assignee.username }}</span>
+      {% else %}
+        <span>Unassigned</span>
+      {% endif %}
+    </div>
+
+    {% if task.due_date %}
+      <span style="font-size:0.7rem;"><i class="fa-regular fa-clock" style="margin-right:3px;"></i>{{ task.due_date|date:"M d" }}</span>
+    {% endif %}
+  </div>
+</div>

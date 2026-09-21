@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block page_title %}No Workspace Active{% endblock %}
+
+{% block content %}
+<div style="min-height:60vh; display:flex; align-items:center; justify-content:center; text-align:center;">
+  <div style="max-width:480px; background:var(--bg-glass-card); border:1px solid var(--border-accent); border-radius:var(--radius-lg); padding:36px;">
+    <i class="fa-solid fa-building-circle-exclamation" style="font-size:3rem; color:var(--accent-amber); margin-bottom:16px; display:block;"></i>
+    <h2 style="font-size:1.4rem; font-weight:800;">No Workspace Available</h2>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-top:8px; margin-bottom:20px;">
+      You are not currently enrolled as a member of any workspace.
+    </p>
+    <a href="{% url 'register' %}" class="btn btn-primary">Create New Workspace</a>
+  </div>
+</div>
+{% endblock %}

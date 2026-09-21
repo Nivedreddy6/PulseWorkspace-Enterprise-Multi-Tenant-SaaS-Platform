@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Subscription & Billing Portal{% endblock %}
+
+{% block content %}
+<div style="margin-bottom:32px; text-align:center; max-width:680px; margin-left:auto; margin-right:auto;">
+  <h2 style="font-size:1.8rem; font-weight:800; letter-spacing:-0.02em;">Simple, Transparent SaaS Pricing</h2>
+  <p style="color:var(--text-muted); font-size:0.95rem; margin-top:6px;">
+    Scale your organization from early stage product teams to enterprise-wide engineering workflows.
+  </p>
+</div>
+
+<div class="pricing-grid">
+  {% for plan in plans %}
+  <div class="plan-card {% if plan.tier_code == 'PRO' %}featured{% endif %}">
+    {% if plan.tier_code == 'PRO' %}
+      <div class="plan-badge">MOST POPULAR</div>
+    {% endif %}
+
+    <div class="plan-name">{{ plan.name }}</div>
+    <div class="plan-price">
+      ${{ plan.price_monthly|floatformat:0 }}<span> / month</span>
+    </div>
+
+    <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:16px;">
+      {% if plan.tier_code == 'FREE' %}
+        Essential tooling for small indie teams building their MVP.
+      {% elif plan.tier_code == 'PRO' %}
+        Advanced collaboration for high-velocity software engineering orgs.
+      {% else %}
+        Mission-critical reliability, compliance, and dedicated capacity.
+      {% endif %}
+    </p>
+
+    <ul class="plan-features">
+      <li>
+        <i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i>
+        <span><strong>{{ plan.max_members }}</strong> Team Members</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i>
+        <span><strong>{{ plan.max_projects }}</strong> Workspace Projects</span>
+      </li>
+      <li>
+        <i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i>
+        <span>Interactive Kanban Board</span>
+      </li>
+      <li>
+        {% if plan.has_audit_logs %}
+          <i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i>
+          <span>SOC2 Compliance Audit Logs</span>
+        {% else %}
+          <i class="fa-solid fa-xmark" style="color:var(--text-subtle);"></i>
+          <span style="color:var(--text-subtle);">Audit Logs</span>
+        {% endif %}
+      </li>
+      <li>
+        <i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i>
+        <span>REST API & Swagger Access</span>
+      </li>
+    </ul>
+
+    {% if subscription.plan.id == plan.id %}
+      <button type="button" class="btn btn-secondary" style="width:100%; justify-content:center; cursor:default; background:rgba(16, 185, 129, 0.15); border-color:rgba(16, 185, 129, 0.4); color:#34d399;" disabled>
+        <i class="fa-solid fa-circle-check"></i> Current Plan
+      </button>
+    {% else %}
+      {% if is_workspace_admin %}
+      <form method="POST" action="{% url 'billing' %}">
+        {% csrf_token %}
+        <input type="hidden" name="tier_code" value="{{ plan.tier_code }}">
+        <button type="submit" class="btn {% if plan.tier_code == 'PRO' %}btn-primary{% else %}btn-secondary{% endif %}" style="width:100%; justify-content:center;">
+          {% if plan.price_monthly > subscription.plan.price_monthly %}
+            <i class="fa-solid fa-arrow-up"></i> Upgrade to {{ plan.name }}
+          {% else %}
+            Switch to {{ plan.name }}
+          {% endif %}
+        </button>
+      </form>
+      {% else %}
+      <button type="button" class="btn btn-secondary" style="width:100%; justify-content:center; opacity:0.6;" disabled>
+        Requires Admin
+      </button>
+      {% endif %}
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

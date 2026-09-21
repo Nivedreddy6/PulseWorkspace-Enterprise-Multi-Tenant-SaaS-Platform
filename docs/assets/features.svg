@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" width="100%" height="300">
+  <defs>
+    <linearGradient id="cardBg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" /><stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="cardBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#083344" /><stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="cardBg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b0764" /><stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="cardBg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" /><stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="cardBg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#451a03" /><stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="cardBg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4c0519" /><stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <filter id="fGlow">
+      <feGaussianBlur stdDeviation="5" result="b" />
+      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes cardPulse {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-4px); }
+    }
+    .hover-card {
+      animation: cardPulse 4s ease-in-out infinite;
+    }
+    .card-title {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      fill: #ffffff;
+    }
+    .card-desc {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      fill: #94a3b8;
+    }
+  </style>
+
+  <rect width="860" height="300" rx="16" fill="#090d16" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+  <!-- ROW 1 -->
+  <!-- Card 1: Multi-Tenancy -->
+  <g transform="translate(25, 25)" class="hover-card">
+    <rect width="255" height="115" rx="12" fill="url(#cardBg1)" stroke="#6366f1" stroke-width="1.5" />
+    <circle cx="28" cy="30" r="14" fill="#312e81" filter="url(#fGlow)" />
+    <text x="28" y="35" font-size="13" text-anchor="middle">🏢</text>
+    <text x="52" y="34" class="card-title">Multi-Tenant Workspaces</text>
+    <text x="20" y="62" class="card-desc">Isolated tenant data containers</text>
+    <text x="20" y="78" class="card-desc">scoped at ORM and API query level.</text>
+    <text x="20" y="96" font-family="monospace" font-size="10" fill="#818cf8">HTTP 403 Cross-Tenant Guard</text>
+  </g>
+
+  <!-- Card 2: RBAC Matrix -->
+  <g transform="translate(300, 25)">
+    <rect width="255" height="115" rx="12" fill="url(#cardBg2)" stroke="#06b6d4" stroke-width="1.5" />
+    <circle cx="28" cy="30" r="14" fill="#083344" filter="url(#fGlow)" />
+    <text x="28" y="35" font-size="13" text-anchor="middle">🛡️</text>
+    <text x="52" y="34" class="card-title">Granular RBAC Security</text>
+    <text x="20" y="62" class="card-desc">Owner, Admin, Member, Viewer roles.</text>
+    <text x="20" y="78" class="card-desc">Prevent privilege escalation &amp; leaks.</text>
+    <text x="20" y="96" font-family="monospace" font-size="10" fill="#38bdf8">IsWorkspaceAdmin / Member</text>
+  </g>
+
+  <!-- Card 3: Audit Trails -->
+  <g transform="translate(575, 25)" class="hover-card">
+    <rect width="255" height="115" rx="12" fill="url(#cardBg3)" stroke="#a855f7" stroke-width="1.5" />
+    <circle cx="28" cy="30" r="14" fill="#3b0764" filter="url(#fGlow)" />
+    <text x="28" y="35" font-size="13" text-anchor="middle">📋</text>
+    <text x="52" y="34" class="card-title">SOC2 Audit Logging</text>
+    <text x="20" y="62" class="card-desc">Immutable event ledger recording</text>
+    <text x="20" y="78" class="card-desc">user actions, IPs, and diff payloads.</text>
+    <text x="20" y="96" font-family="monospace" font-size="10" fill="#c084fc">Safe non-blocking logging</text>
+  </g>
+
+  <!-- ROW 2 -->
+  <!-- Card 4: Kanban Board -->
+  <g transform="translate(25, 160)">
+    <rect width="255" height="115" rx="12" fill="url(#cardBg4)" stroke="#10b981" stroke-width="1.5" />
+    <circle cx="28" cy="30" r="14" fill="#064e3b" filter="url(#fGlow)" />
+    <text x="28" y="35" font-size="13" text-anchor="middle">📊</text>
+    <text x="52" y="34" class="card-title">Interactive Kanban Pipeline</text>
+    <text x="20" y="62" class="card-desc">HTML5 Drag &amp; Drop ticket board with</text>
+    <text x="20" y="78" class="card-desc">asynchronous AJAX state synchronization.</text>
+    <text x="20" y="96" font-family="monospace" font-size="10" fill="#34d399">Optimistic DOM rendering</text>
+  </g>
+
+  <!-- Card 5: OpenAPI 3.0 -->
+  <g transform="translate(300, 160)" class="hover-card">
+    <rect width="255" height="115" rx="12" fill="url(#cardBg5)" stroke="#f59e0b" stroke-width="1.5" />
+    <circle cx="28" cy="30" r="14" fill="#451a03" filter="url(#fGlow)" />
+    <text x="28" y="35" font-size="13" text-anchor="middle">⚡</text>
+    <text x="52" y="34" class="card-title">OpenAPI 3.0 / Swagger</text>
+    <text x="20" y="62" class="card-desc">Live interactive API docs generated via</text>
+    <text x="20" y="78" class="card-desc">drf-spectacular with Token &amp; Session auth.</text>
+    <text x="20" y="96" font-family="monospace" font-size="10" fill="#fbbf24">/api/docs/ &amp; /api/schema/</text>
+  </g>
+
+  <!-- Card 6: Quota Engine -->
+  <g transform="translate(575, 160)">
+    <rect width="255" height="115" rx="12" fill="url(#cardBg6)" stroke="#f43f5e" stroke-width="1.5" />
+    <circle cx="28" cy="30" r="14" fill="#4c0519" filter="url(#fGlow)" />
+    <text x="28" y="35" font-size="13" text-anchor="middle">💎</text>
+    <text x="52" y="34" class="card-title">SaaS Tiers &amp; Seat Limits</text>
+    <text x="20" y="62" class="card-desc">Free, Pro, and Enterprise quotas</text>
+    <text x="20" y="78" class="card-desc">with 1-click mock billing simulation.</text>
+    <text x="20" y="96" font-family="monospace" font-size="10" fill="#fb7185">Feature Gating &amp; Quotas</text>
+  </g>
+</svg>

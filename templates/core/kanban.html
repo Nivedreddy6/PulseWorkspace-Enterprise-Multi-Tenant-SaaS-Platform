@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Kanban Board{% endblock %}
+
+{% block topbar_actions %}
+<button type="button" class="btn btn-primary btn-sm" data-open-modal="quickTaskModal">
+  <i class="fa-solid fa-plus"></i> New Task
+</button>
+{% endblock %}
+
+{% block content %}
+<div style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center;">
+  <div>
+    <h2 style="font-size:1.3rem; font-weight:800;">Pipeline & Sprint Board</h2>
+    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:2px;">
+      Drag and drop task cards between columns or use the quick status selector to advance tickets.
+    </p>
+  </div>
+</div>
+
+<div class="kanban-board">
+  <!-- Column 1: TO DO -->
+  <div class="kanban-column" data-column-status="TODO">
+    <div class="kanban-column-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#94a3b8;"></span>
+        <span>To Do</span>
+      </div>
+      <div class="column-pill">{{ kanban_columns.TODO.count }}</div>
+    </div>
+    <div class="kanban-cards-wrapper">
+      {% for task in kanban_columns.TODO %}
+        {% include 'core/includes/kanban_card.html' with task=task %}
+      {% empty %}
+        <div style="text-align:center; padding:32px 10px; font-size:0.8rem; color:var(--text-subtle);">
+          Empty column
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Column 2: IN PROGRESS -->
+  <div class="kanban-column" data-column-status="IN_PROGRESS">
+    <div class="kanban-column-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:var(--accent-primary);"></span>
+        <span>In Progress</span>
+      </div>
+      <div class="column-pill">{{ kanban_columns.IN_PROGRESS.count }}</div>
+    </div>
+    <div class="kanban-cards-wrapper">
+      {% for task in kanban_columns.IN_PROGRESS %}
+        {% include 'core/includes/kanban_card.html' with task=task %}
+      {% empty %}
+        <div style="text-align:center; padding:32px 10px; font-size:0.8rem; color:var(--text-subtle);">
+          Empty column
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Column 3: IN REVIEW -->
+  <div class="kanban-column" data-column-status="IN_REVIEW">
+    <div class="kanban-column-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:var(--accent-amber);"></span>
+        <span>In Review</span>
+      </div>
+      <div class="column-pill">{{ kanban_columns.IN_REVIEW.count }}</div>
+    </div>
+    <div class="kanban-cards-wrapper">
+      {% for task in kanban_columns.IN_REVIEW %}
+        {% include 'core/includes/kanban_card.html' with task=task %}
+      {% empty %}
+        <div style="text-align:center; padding:32px 10px; font-size:0.8rem; color:var(--text-subtle);">
+          Empty column
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Column 4: DONE -->
+  <div class="kanban-column" data-column-status="DONE">
+    <div class="kanban-column-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:var(--accent-emerald);"></span>
+        <span>Done</span>
+      </div>
+      <div class="column-pill">{{ kanban_columns.DONE.count }}</div>
+    </div>
+    <div class="kanban-cards-wrapper">
+      {% for task in kanban_columns.DONE %}
+        {% include 'core/includes/kanban_card.html' with task=task %}
+      {% empty %}
+        <div style="text-align:center; padding:32px 10px; font-size:0.8rem; color:var(--text-subtle);">
+          Empty column
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Quick Task Creation -->
+<div id="quickTaskModal" class="modal-overlay">
+  <div class="modal-content">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h3 class="modal-title" style="margin-bottom:0;">Create Board Task</h3>
+      <button type="button" style="background:none; border:none; color:var(--text-subtle); font-size:1.2rem; cursor:pointer;" data-close-modal>&times;</button>
+    </div>
+    
+    {% if projects.exists %}
+    <form method="POST" action="{% url 'project_detail' projects.first.slug %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="form-label" for="kanban_proj">Project</label>
+        <select id="kanban_proj" name="project_slug" class="form-control" onchange="this.form.action='/projects/' + this.value + '/'">
+          {% for p in projects %}
+            <option value="{{ p.slug }}">{{ p.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="kb_title">Task Title</label>
+        <input type="text" id="kb_title" name="title" class="form-control" placeholder="Task title..." required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="kb_desc">Description</label>
+        <textarea id="kb_desc" name="description" class="form-control" rows="2" placeholder="Details..."></textarea>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label class="form-label">Priority</label>
+          <select name="priority" class="form-control">
+            <option value="LOW">Low</option>
+            <option value="MEDIUM" selected>Medium</option>
+            <option value="HIGH">High</option>
+            <option value="URGENT">Urgent</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Assignee</label>
+          <select name="assignee_id" class="form-control">
+            <option value="">Unassigned</option>
+            {% for mem in members %}
+              <option value="{{ mem.user.id }}">{{ mem.user.display_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+        <button type="button" class="btn btn-secondary" data-close-modal>Cancel</button>
+        <button type="submit" class="btn btn-primary">Create Task</button>
+      </div>
+    </form>
+    {% else %}
+    <p style="color:var(--text-muted);">Please create a project before adding tasks.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
