@@ -147,7 +147,7 @@
     <text x="450" y="112" class="footer-heading" fill="url(#footerTitleGrad)" text-anchor="middle">PULSEWORKSPACE SAAS</text>
 
     <!-- Subtitle -->
-    <text x="450" y="132" class="footer-subtitle" text-anchor="middle">Enterprise Multi-Tenant Infrastructure &#8226; Built with Django 6, DRF, PostgreSQL &amp; Docker</text>
+    <text x="450" y="132" class="footer-subtitle" text-anchor="middle">Architected &amp; Engineered by Nived Reddy &#8226; Django 6, DRF, PostgreSQL &amp; Docker</text>
 
     <!-- Bottom Feature Tag Pills -->
     <g transform="translate(195, 150)">

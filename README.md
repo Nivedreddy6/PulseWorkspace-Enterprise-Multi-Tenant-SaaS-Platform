@@ -183,9 +183,29 @@ docker-compose up --build
 
 ---
 
+<a id="author"></a>
+## 👨‍💻 Author & Lead Architect
+
+PulseWorkspace was architected and built from the ground up by **Nived Reddy** to demonstrate production SaaS architecture, multi-tenant isolation, and high-performance Django engineering.
+
+<div align="center">
+  <a href="https://github.com/Nivedreddy6">
+    <img src="docs/assets/author_card.svg" alt="Nived Reddy - Lead Architect & Creator" width="100%" />
+  </a>
+
+  <br/><br/>
+
+  <p align="center">
+    <a href="https://github.com/Nivedreddy6"><img src="https://img.shields.io/badge/GitHub-Nivedreddy6-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile" /></a>
+    <a href="mailto:nivedreddy6@gmail.com"><img src="https://img.shields.io/badge/Email-nivedreddy6%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Direct Email" /></a>
+  </p>
+</div>
+
+---
+
 ## 📄 License & Attribution
 
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Distributed under the **MIT License**. Copyright &copy; 2026 **Nived Reddy**. See [`LICENSE`](LICENSE) for details.
 
 ---
 
@@ -217,8 +237,9 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
   </p>
 
   <p align="center">
-    <sub>Engineered with precision for enterprise-scale engineering. If you find this project inspiring, star the repository on GitHub! ⭐</sub>
+    <sub>Engineered with precision by <strong>Nived Reddy</strong> for enterprise-scale engineering. If you find this project inspiring, star the repository on GitHub! ⭐</sub>
   </p>
 
 </div>
+
 
