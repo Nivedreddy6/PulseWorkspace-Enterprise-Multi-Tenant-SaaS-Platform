@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 42" width="152" height="42">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Animated Border Gradient -->
+    <linearGradient id="borderGradTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1">
+        <animate attributeName="stop-color" values="#6366f1;#06b6d4;#ec4899;#6366f1" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#06b6d4">
+        <animate attributeName="stop-color" values="#06b6d4;#ec4899;#6366f1;#06b6d4" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#ec4899">
+        <animate attributeName="stop-color" values="#ec4899;#6366f1;#06b6d4;#ec4899" dur="4s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Shimmer Highlight Beam -->
+    <linearGradient id="shimmerBeamTop" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+      <stop offset="50%" stop-color="rgba(255,255,255,0.35)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </linearGradient>
+
+    <!-- Glowing Drop Shadow -->
+    <filter id="iconGlowTop" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#38bdf8" flood-opacity="0.8" />
+    </filter>
+
+    <clipPath id="btnClipTop">
+      <rect x="1" y="1" width="150" height="40" rx="20" />
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes sweepTop {
+      0% { transform: translateX(-120px) skewX(-25deg); }
+      50%, 100% { transform: translateX(220px) skewX(-25deg); }
+    }
+    @keyframes bounceUp {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+    .shimmer {
+      animation: sweepTop 3.5s ease-in-out infinite;
+    }
+    .btn-text {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      fill: #ffffff;
+    }
+    .bounce-arrow {
+      transform-origin: 22px 21px;
+      animation: bounceUp 1.8s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Button Container Clipped -->
+  <g clip-path="url(#btnClipTop)">
+    <!-- Base Background -->
+    <rect x="1" y="1" width="150" height="40" rx="20" fill="url(#bgGradTop)" />
+
+    <!-- Animated Light Sweep Beam -->
+    <rect class="shimmer" x="0" y="0" width="45" height="42" fill="url(#shimmerBeamTop)" />
+  </g>
+
+  <!-- Button Border with Gradient -->
+  <rect x="1" y="1" width="150" height="40" rx="20" fill="none" stroke="url(#borderGradTop)" stroke-width="1.8" />
+
+  <!-- Animated Up Arrow Icon -->
+  <g class="bounce-arrow" filter="url(#iconGlowTop)">
+    <circle cx="22" cy="21" r="11" fill="rgba(99, 102, 241, 0.25)" stroke="#38bdf8" stroke-width="1" />
+    <path d="M22 15 L17 20 M22 15 L27 20 M22 15 L22 26" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Button Label -->
+  <text x="42" y="26" class="btn-text">Back to Top</text>
+
+  <!-- Upward Accent Arrow -->
+  <path d="M130 24 L134 20 L138 24" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
+</svg>

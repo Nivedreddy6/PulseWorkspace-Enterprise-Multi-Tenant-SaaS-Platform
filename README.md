@@ -1,3 +1,4 @@
+<a id="top"></a>
 <div align="center">
 
   <!-- Animated SVG Header Banner -->
@@ -186,6 +187,38 @@ docker-compose up --build
 
 Distributed under the **MIT License**. See `LICENSE` for more information.
 
+---
+
+<!-- ==========================================
+     ANIMATED FOOTER SHOWCASE
+     ========================================== -->
 <div align="center">
-  <sub>Built with ❤️ by an ambitious software engineer to demonstrate enterprise backend &amp; full-stack excellence.</sub>
+
+  <br/>
+
+  <!-- Animated Back to Top Button -->
+  <a href="#top">
+    <img src="docs/assets/buttons/btn_back_to_top.svg" alt="Back to Top" height="38" />
+  </a>
+
+  <br/><br/>
+
+  <!-- Animated SVG Footer Banner -->
+  <img src="docs/assets/footer_animated.svg" alt="PulseWorkspace Footer" width="100%" />
+
+  <br/><br/>
+
+  <!-- Community & Project Badges -->
+  <p align="center">
+    <a href="https://github.com/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform/stargazers"><img src="https://img.shields.io/github/stars/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform?style=for-the-badge&logo=github&color=6366f1" alt="GitHub Stars" /></a>
+    <a href="https://github.com/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform/fork"><img src="https://img.shields.io/github/forks/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform?style=for-the-badge&logo=github&color=06b6d4" alt="GitHub Forks" /></a>
+    <a href="https://github.com/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform/issues"><img src="https://img.shields.io/github/issues/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform?style=for-the-badge&logo=github&color=ec4899" alt="Issues" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-10b981?style=for-the-badge" alt="MIT License" /></a>
+  </p>
+
+  <p align="center">
+    <sub>Engineered with precision for enterprise-scale engineering. If you find this project inspiring, star the repository on GitHub! ⭐</sub>
+  </p>
+
 </div>
+
