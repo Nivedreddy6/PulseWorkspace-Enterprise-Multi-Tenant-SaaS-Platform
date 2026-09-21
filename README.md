@@ -25,7 +25,8 @@
     <a href="#-architectural-overview">🏗️ Architecture</a> •
     <a href="#-key-features">✨ Features</a> •
     <a href="#-interactive-api-documentation">📡 API Docs</a> •
-    <a href="#-pre-loaded-demo-credentials">🔑 Demo Accounts</a>
+    <a href="#-pre-loaded-demo-credentials">🔑 Demo Accounts</a> •
+    <a href="#-automated-testing--docker-infrastructure">🧪 Testing &amp; Docker</a>
   </p>
 
 </div>
@@ -124,7 +125,14 @@ python manage.py runserver
 
 ## 📡 Interactive API Documentation
 
-PulseWorkspace provides full OpenAPI 3.0 and Swagger UI support:
+<div align="center">
+  <img src="docs/assets/api_docs_animated.svg" alt="PulseWorkspace Interactive API Gateway" width="100%" />
+</div>
+
+<br/>
+
+<details>
+<summary><strong>📋 Click to expand table view of API endpoints</strong></summary>
 
 | Endpoint | Description |
 | :--- | :--- |
@@ -137,38 +145,33 @@ PulseWorkspace provides full OpenAPI 3.0 and Swagger UI support:
 | **`/api/v1/audit-logs/`** | Enterprise compliance audit trail endpoint |
 | **`/api/v1/billing/`** | Subscription tiers and upgrade simulation |
 
+</details>
+
 ---
 
-## 🧪 Automated Testing
+## 🧪 Automated Testing & 🐳 Docker Infrastructure
 
-Execute the automated test suite verifying tenant security, RBAC rules, audit logs, and billing quotas:
+<div align="center">
+  <img src="docs/assets/testing_docker_animated.svg" alt="PulseWorkspace Testing & Docker Infrastructure" width="100%" />
+</div>
 
+<br/>
+
+<details>
+<summary><strong>📋 Click to view raw test commands & Docker instructions</strong></summary>
+
+### Run Automated Tests:
 ```bash
 python manage.py test
 ```
 
-### Test Output:
-```text
-Creating test database for alias 'default'...
-....
-----------------------------------------------------------------------
-Ran 4 tests in 14.063s
-
-OK
-Destroying test database for alias 'default'...
-```
-
----
-
-## 🐳 Docker Deployment
-
-Run PulseWorkspace with PostgreSQL inside containers:
-
+### Launch Containerized Stack:
 ```bash
 docker-compose up --build
 ```
 
-The application will be accessible at `http://localhost:8000/` with a dedicated PostgreSQL database container.
+*Web service starts at `http://localhost:8000/` backed by an isolated PostgreSQL 16 container.*
+</details>
 
 ---
 

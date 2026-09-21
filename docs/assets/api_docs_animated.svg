@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" width="100%" height="480">
+  <defs>
+    <linearGradient id="apiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a14" />
+      <stop offset="50%" stop-color="#0e1526" />
+      <stop offset="100%" stop-color="#050812" />
+    </linearGradient>
+
+    <!-- Card Backgrounds -->
+    <linearGradient id="apiCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141c30" />
+      <stop offset="100%" stop-color="#0d1322" />
+    </linearGradient>
+
+    <linearGradient id="swaggerGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b">
+        <animate attributeName="stop-color" values="#f59e0b;#10b981;#6366f1;#f59e0b" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <filter id="apiGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulsePoint {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(1.3); }
+    }
+    @keyframes scanRay {
+      0% { transform: translateY(0px); opacity: 0.1; }
+      50% { opacity: 0.6; }
+      100% { transform: translateY(380px); opacity: 0.1; }
+    }
+    @keyframes liveBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .pulse-dot { animation: pulsePoint 2s ease-in-out infinite; transform-origin: center; }
+    .scan-beam { animation: scanRay 4s ease-in-out infinite; }
+    .status-blink { animation: liveBlink 1.5s ease-in-out infinite; }
+
+    .ep-title {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      fill: #ffffff;
+    }
+    .ep-path {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      fill: #e2e8f0;
+    }
+    .ep-desc {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      fill: #94a3b8;
+    }
+    .method-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 800;
+      fill: #ffffff;
+    }
+  </style>
+
+  <!-- Canvas -->
+  <rect width="920" height="480" rx="18" fill="url(#apiBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="160" cy="120" r="120" fill="#f59e0b" opacity="0.12" filter="url(#apiGlow)" />
+  <circle cx="760" cy="360" r="140" fill="#06b6d4" opacity="0.12" filter="url(#apiGlow)" />
+
+  <!-- Window Header -->
+  <rect width="920" height="42" rx="18" fill="#111827" />
+  <rect width="920" height="20" y="22" fill="#111827" />
+  <line x1="0" y1="42" x2="920" y2="42" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+  <circle cx="24" cy="21" r="6" fill="#ef4444" />
+  <circle cx="44" cy="21" r="6" fill="#f59e0b" />
+  <circle cx="64" cy="21" r="6" fill="#10b981" />
+  <text x="460" y="26" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94a3b8" text-anchor="middle">
+    OpenAPI 3.0 REST Gateway • drf-spectacular • /api/docs/
+  </text>
+
+  <!-- Left: Featured Interactive Swagger Banner Card -->
+  <g transform="translate(25, 60)">
+    <rect width="380" height="395" rx="14" fill="url(#apiCardBg)" stroke="url(#swaggerGlow)" stroke-width="1.5" />
+    
+    <g transform="translate(20, 20)">
+      <rect width="70" height="22" rx="11" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="0.8" />
+      <text x="35" y="15" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" fill="#fde68a" text-anchor="middle">SWAGGER</text>
+      
+      <circle cx="330" cy="11" r="4" fill="#10b981" class="status-blink" />
+      <text x="320" y="15" font-family="sans-serif" font-size="10" fill="#10b981" text-anchor="end">Live API Docs</text>
+    </g>
+
+    <!-- Interactive Swagger Graphic -->
+    <g transform="translate(20, 56)">
+      <rect width="340" height="150" rx="10" fill="#0b0f19" stroke="rgba(245, 158, 11, 0.3)" stroke-width="1" />
+      <rect x="14" y="14" width="55" height="20" rx="4" fill="#059669" />
+      <text x="41" y="28" class="method-tag" text-anchor="middle">POST</text>
+      <text x="76" y="28" class="ep-path" font-size="11">/api/v1/workspaces/</text>
+
+      <!-- JSON Preview Box -->
+      <g transform="translate(14, 44)">
+        <rect width="312" height="92" rx="6" fill="rgba(0, 0, 0, 0.45)" />
+        <text x="12" y="20" font-family="'JetBrains Mono', monospace" font-size="10" fill="#a5b4fc">{</text>
+        <text x="24" y="38" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#94a3b8">"name": <tspan fill="#34d399">"Acme Cloud Tech"</tspan>,</text>
+        <text x="24" y="56" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#94a3b8">"tier": <tspan fill="#38bdf8">"PRO"</tspan>, "max_seats": <tspan fill="#f59e0b">15</tspan></text>
+        <text x="12" y="74" font-family="'JetBrains Mono', monospace" font-size="10" fill="#a5b4fc">} &#8226; <tspan fill="#10b981">HTTP 201 Created</tspan></text>
+      </g>
+    </g>
+
+    <!-- Interactive Features -->
+    <g transform="translate(20, 225)">
+      <text x="0" y="14" class="ep-title">&#128225; Swagger &amp; ReDoc Endpoints</text>
+      <text x="0" y="34" class="ep-desc">&#8226; <tspan font-weight="700" fill="#e2e8f0">/api/docs/</tspan> Interactive Swagger UI with try-it-out</text>
+      <text x="0" y="54" class="ep-desc">&#8226; <tspan font-weight="700" fill="#e2e8f0">/api/redoc/</tspan> Deep documentation specification</text>
+      <text x="0" y="74" class="ep-desc">&#8226; <tspan font-weight="700" fill="#e2e8f0">/api/schema/</tspan> Raw OpenAPI 3.0 YAML/JSON</text>
+      <text x="0" y="94" class="ep-desc">&#8226; <tspan font-weight="700" fill="#e2e8f0">Auth</tspan>: TokenAuthentication &amp; SessionAuthentication</text>
+    </g>
+
+    <!-- Bottom Action Pill -->
+    <g transform="translate(20, 345)">
+      <rect width="340" height="32" rx="8" fill="#4338ca" />
+      <text x="170" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">Explore Interactive Swagger UI &#8594;</text>
+    </g>
+  </g>
+
+  <!-- Right: Detailed Endpoint Rows -->
+  <g transform="translate(425, 60)">
+    
+    <!-- ROW 1: WORKSPACES -->
+    <g transform="translate(0, 0)">
+      <rect width="470" height="68" rx="10" fill="url(#apiCardBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <rect x="14" y="14" width="46" height="20" rx="4" fill="#059669" />
+      <text x="37" y="28" class="method-tag" text-anchor="middle">GET</text>
+      <text x="68" y="28" class="ep-path">/api/v1/workspaces/</text>
+      <rect x="390" y="14" width="65" height="18" rx="4" fill="#1e1b4b" />
+      <text x="422" y="26" class="badge-label" fill="#a5b4fc" text-anchor="middle">TENANT</text>
+      <text x="14" y="52" class="ep-desc">List tenant workspaces, memberships, and role assignments.</text>
+    </g>
+
+    <!-- ROW 2: PROJECTS -->
+    <g transform="translate(0, 80)">
+      <rect width="470" height="68" rx="10" fill="url(#apiCardBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <rect x="14" y="14" width="46" height="20" rx="4" fill="#059669" />
+      <text x="37" y="28" class="method-tag" text-anchor="middle">GET</text>
+      <text x="68" y="28" class="ep-path">/api/v1/projects/</text>
+      <rect x="390" y="14" width="65" height="18" rx="4" fill="#064e3b" />
+      <text x="422" y="26" class="badge-label" fill="#6ee7b7" text-anchor="middle">PROJECTS</text>
+      <text x="14" y="52" class="ep-desc">Workspace-scoped projects with completion aggregations.</text>
+    </g>
+
+    <!-- ROW 3: TASKS &amp; KANBAN -->
+    <g transform="translate(0, 160)">
+      <rect width="470" height="68" rx="10" fill="url(#apiCardBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <rect x="14" y="14" width="54" height="20" rx="4" fill="#2563eb" />
+      <text x="41" y="28" class="method-tag" text-anchor="middle">POST</text>
+      <text x="76" y="28" class="ep-path">/api/v1/tasks/{id}/update_status/</text>
+      <rect x="390" y="14" width="65" height="18" rx="4" fill="#3b0764" />
+      <text x="422" y="26" class="badge-label" fill="#d8b4fe" text-anchor="middle">KANBAN</text>
+      <text x="14" y="52" class="ep-desc">AJAX state movement across To Do, In Progress, Review, Done.</text>
+    </g>
+
+    <!-- ROW 4: AUDIT LOGS -->
+    <g transform="translate(0, 240)">
+      <rect width="470" height="68" rx="10" fill="url(#apiCardBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <rect x="14" y="14" width="46" height="20" rx="4" fill="#059669" />
+      <text x="37" y="28" class="method-tag" text-anchor="middle">GET</text>
+      <text x="68" y="28" class="ep-path">/api/v1/audit-logs/</text>
+      <rect x="390" y="14" width="65" height="18" rx="4" fill="#451a03" />
+      <text x="422" y="26" class="badge-label" fill="#fde68a" text-anchor="middle">SOC2</text>
+      <text x="14" y="52" class="ep-desc">Immutable compliance logs capturing mutations, IPs, and actors.</text>
+    </g>
+
+    <!-- ROW 5: BILLING &amp; UPGRADES -->
+    <g transform="translate(0, 320)">
+      <rect width="470" height="68" rx="10" fill="url(#apiCardBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      <rect x="14" y="14" width="54" height="20" rx="4" fill="#dc2626" />
+      <text x="41" y="28" class="method-tag" text-anchor="middle">POST</text>
+      <text x="76" y="28" class="ep-path">/api/v1/billing/upgrade_workspace/</text>
+      <rect x="390" y="14" width="65" height="18" rx="4" fill="#4c0519" />
+      <text x="422" y="26" class="badge-label" fill="#fda4af" text-anchor="middle">BILLING</text>
+      <text x="14" y="52" class="ep-desc">Plan upgrade simulation (Free &#8594; Pro &#8594; Enterprise) with quotas.</text>
+    </g>
+  </g>
+</svg>
