@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="620">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#060913" />
+    </linearGradient>
+
+    <!-- Card Gradients -->
+    <linearGradient id="stepCard1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19193b" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+    <linearGradient id="stepCard2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a392b" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+    <linearGradient id="stepCard3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d2109" />
+      <stop offset="100%" stop-color="#0e1628" />
+    </linearGradient>
+
+    <!-- Animated Neon Borders -->
+    <linearGradient id="neonIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1">
+        <animate attributeName="stop-color" values="#6366f1;#06b6d4;#6366f1" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="neonEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981">
+        <animate attributeName="stop-color" values="#10b981;#06b6d4;#10b981" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="neonAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b">
+        <animate attributeName="stop-color" values="#f59e0b;#ec4899;#f59e0b" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="termGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes pulseOrbQS {
+      0%, 100% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(1.15); }
+    }
+    @keyframes scanline {
+      0% { y: 20; opacity: 0.05; }
+      50% { opacity: 0.25; }
+      100% { y: 590; opacity: 0.05; }
+    }
+    .blink-cursor { animation: cursorBlink 1s infinite; }
+    .bg-orb { animation: pulseOrbQS 6s ease-in-out infinite; transform-origin: 460px 300px; }
+    .scanner-bar { animation: scanline 4s linear infinite; }
+
+    .step-title {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+    .code-cmd {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 11.5px;
+      font-weight: 500;
+    }
+    .comment-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      fill: #64748b;
+    }
+  </style>
+
+  <!-- Background Terminal Canvas -->
+  <rect width="920" height="620" rx="18" fill="url(#termBg)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="200" cy="180" r="140" fill="#6366f1" filter="url(#termGlow)" class="bg-orb" />
+  <circle cx="750" cy="450" r="150" fill="#10b981" filter="url(#termGlow)" class="bg-orb" />
+
+  <!-- Terminal Title Bar -->
+  <rect width="920" height="42" rx="18" fill="#111827" />
+  <rect width="920" height="20" y="22" fill="#111827" />
+  <line x1="0" y1="42" x2="920" y2="42" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+  <!-- Mac Window Dots -->
+  <circle cx="24" cy="21" r="6" fill="#ef4444" />
+  <circle cx="44" cy="21" r="6" fill="#f59e0b" />
+  <circle cx="64" cy="21" r="6" fill="#10b981" />
+  <text x="460" y="26" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94a3b8" text-anchor="middle">
+    quickstart-guide • bash • 920x620
+  </text>
+
+  <!-- ==========================================
+       STEP 1: CLONE & ENVIRONMENT SETUP
+       ========================================== -->
+  <g transform="translate(30, 62)">
+    <rect width="860" height="165" rx="14" fill="url(#stepCard1)" stroke="url(#neonIndigo)" stroke-width="1.5" />
+    
+    <!-- Step Badge -->
+    <rect x="20" y="16" width="70" height="24" rx="12" fill="#4338ca" />
+    <text x="55" y="32" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">STEP 01</text>
+    
+    <text x="102" y="33" class="step-title" fill="#c7d2fe">Clone Repository &amp; Initialize Virtual Environment</text>
+
+    <!-- Code Block Inside -->
+    <g transform="translate(20, 52)">
+      <rect width="820" height="96" rx="8" fill="rgba(0, 0, 0, 0.45)" stroke="rgba(99, 102, 241, 0.25)" stroke-width="1" />
+      
+      <!-- Line 1: Git clone -->
+      <text x="18" y="24" class="comment-text"># 1. Clone repository from GitHub</text>
+      <text x="18" y="44" class="code-cmd" fill="#a5b4fc">
+        <tspan fill="#38bdf8">$</tspan> git clone https://github.com/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform.git
+      </text>
+      
+      <!-- Line 2: CD & venv -->
+      <text x="18" y="66" class="comment-text"># 2. Enter project &amp; activate isolated virtual environment</text>
+      <text x="18" y="84" class="code-cmd" fill="#a5b4fc">
+        <tspan fill="#38bdf8">$</tspan> cd PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform &amp;&amp; python -m venv .venv &amp;&amp; <tspan fill="#34d399">.venv\Scripts\activate</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- ==========================================
+       STEP 2: DEPENDENCIES & MIGRATIONS
+       ========================================== -->
+  <g transform="translate(30, 245)">
+    <rect width="860" height="165" rx="14" fill="url(#stepCard2)" stroke="url(#neonEmerald)" stroke-width="1.5" />
+    
+    <!-- Step Badge -->
+    <rect x="20" y="16" width="70" height="24" rx="12" fill="#065f46" />
+    <text x="55" y="32" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">STEP 02</text>
+    
+    <text x="102" y="33" class="step-title" fill="#a7f3d0">Install Dependencies &amp; Seed Enterprise Demo Data</text>
+
+    <!-- Code Block Inside -->
+    <g transform="translate(20, 52)">
+      <rect width="820" height="96" rx="8" fill="rgba(0, 0, 0, 0.45)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1" />
+      
+      <!-- Line 1: Pip install -->
+      <text x="18" y="24" class="comment-text"># 1. Install production dependencies (Django 6, DRF, drf-spectacular)</text>
+      <text x="18" y="44" class="code-cmd" fill="#6ee7b7">
+        <tspan fill="#34d399">$</tspan> pip install -r requirements.txt
+      </text>
+      
+      <!-- Line 2: Migrate & Seed -->
+      <text x="18" y="66" class="comment-text"># 2. Apply multi-tenant schema migrations &amp; populate realistic demo users/teams</text>
+      <text x="18" y="84" class="code-cmd" fill="#6ee7b7">
+        <tspan fill="#34d399">$</tspan> python manage.py migrate &amp;&amp; <tspan fill="#f59e0b">python manage.py seed_demo_data</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- ==========================================
+       STEP 3: LAUNCH DEV SERVER
+       ========================================== -->
+  <g transform="translate(30, 428)">
+    <rect width="860" height="165" rx="14" fill="url(#stepCard3)" stroke="url(#neonAmber)" stroke-width="1.5" />
+    
+    <!-- Step Badge -->
+    <rect x="20" y="16" width="70" height="24" rx="12" fill="#92400e" />
+    <text x="55" y="32" font-family="sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">STEP 03</text>
+    
+    <text x="102" y="33" class="step-title" fill="#fde68a">Start Development Server &amp; Open Web UI</text>
+
+    <!-- Code Block Inside -->
+    <g transform="translate(20, 52)">
+      <rect width="820" height="96" rx="8" fill="rgba(0, 0, 0, 0.45)" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1" />
+      
+      <!-- Line 1: Runserver -->
+      <text x="18" y="24" class="comment-text"># Launch the local application server</text>
+      <text x="18" y="44" class="code-cmd" fill="#fde68a">
+        <tspan fill="#f59e0b">$</tspan> python manage.py runserver <tspan class="blink-cursor" fill="#f59e0b">_</tspan>
+      </text>
+      
+      <!-- Line 2: Live status pill -->
+      <g transform="translate(18, 60)">
+        <rect width="420" height="26" rx="13" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="1" />
+        <circle cx="16" cy="13" r="4" fill="#10b981" />
+        <text x="28" y="17" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#34d399">
+          Ready! Open: http://127.0.0.1:8000/
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

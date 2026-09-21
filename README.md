@@ -68,36 +68,36 @@ PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant d
 
 ## ⚡ Quickstart & Local Setup
 
-### 1. Clone & Setup Environment
+<div align="center">
+  <img src="docs/assets/quickstart_animated.svg" alt="PulseWorkspace Quickstart Terminal Guide" width="100%" />
+</div>
+
+<br/>
+
+<details>
+<summary><strong>📋 Click to expand copy-pasteable terminal commands</strong></summary>
+
 ```bash
-# Clone the repository
+# 1. Clone & Setup Virtual Environment
 git clone https://github.com/Nivedreddy6/PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform.git
 cd PulseWorkspace-Enterprise-Multi-Tenant-SaaS-Platform
-
-# Create and activate virtual environment
 python -m venv .venv
-source .venv/bin/activate       # On Linux/macOS
+
+# Activate environment:
 .venv\Scripts\activate          # On Windows
-```
+# source .venv/bin/activate     # On Linux/macOS
 
-### 2. Install Dependencies & Migrate
-```bash
-# Install packages
+# 2. Install Dependencies, Migrate & Seed Enterprise Data
 pip install -r requirements.txt
-
-# Run migrations
 python manage.py migrate
-
-# Seed rich enterprise demo data
 python manage.py seed_demo_data
-```
 
-### 3. Launch the Server
-```bash
+# 3. Launch Local Development Server
 python manage.py runserver
 ```
 
-🌐 Open your browser at **`http://127.0.0.1:8000/`** to view the app!
+🌐 *Platform will be immediately live at: `http://127.0.0.1:8000/`*
+</details>
 
 ---
 
