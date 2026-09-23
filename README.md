@@ -2,7 +2,9 @@
 <div align="center">
 
   <!-- Animated SVG Header Banner -->
-  <img src="docs/assets/banner.svg" alt="PulseWorkspace Banner" width="100%" />
+  <a href="#top">
+    <img src="docs/assets/banner.svg" alt="PulseWorkspace Banner" width="100%" />
+  </a>
 
   <br/><br/>
 
@@ -51,7 +53,9 @@ Designed for high-velocity software engineering organizations, this platform dem
 PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant datasets are strictly sandboxed at both ORM and API query execution levels.
 
 <div align="center">
-  <img src="docs/assets/architecture.svg" alt="System Architecture Diagram" width="100%" />
+  <a href="#architecture">
+    <img src="docs/assets/architecture.svg" alt="System Architecture Diagram" width="100%" />
+  </a>
 </div>
 
 ### 🛡️ Core Security Invariants:
@@ -66,7 +70,9 @@ PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant d
 ## ✨ Key Platform Features
 
 <div align="center">
-  <img src="docs/assets/features_showcase.svg" alt="PulseWorkspace Key Features Showcase" width="100%" />
+  <a href="#features">
+    <img src="docs/assets/features_showcase.svg" alt="PulseWorkspace Key Features Showcase" width="100%" />
+  </a>
 </div>
 
 ---
@@ -75,7 +81,9 @@ PulseWorkspace enforces a multi-tier defense architecture ensuring that tenant d
 ## ⚡ Quickstart & Local Setup
 
 <div align="center">
-  <img src="docs/assets/quickstart_animated.svg" alt="PulseWorkspace Quickstart Terminal Guide" width="100%" />
+  <a href="#quickstart">
+    <img src="docs/assets/quickstart_animated.svg" alt="PulseWorkspace Quickstart Terminal Guide" width="100%" />
+  </a>
 </div>
 
 <br/>
@@ -111,7 +119,9 @@ python manage.py runserver
 ## 🔑 Pre-Loaded Demo Credentials
 
 <div align="center">
-  <img src="docs/assets/personas_credentials.svg" alt="PulseWorkspace Demo Credentials Showcase" width="100%" />
+  <a href="#demo-accounts">
+    <img src="docs/assets/personas_credentials.svg" alt="PulseWorkspace Demo Credentials Showcase" width="100%" />
+  </a>
 </div>
 
 <br/>
@@ -133,7 +143,9 @@ python manage.py runserver
 ## 📡 Interactive API Documentation
 
 <div align="center">
-  <img src="docs/assets/api_docs_animated.svg" alt="PulseWorkspace Interactive API Gateway" width="100%" />
+  <a href="#api-docs">
+    <img src="docs/assets/api_docs_animated.svg" alt="PulseWorkspace Interactive API Gateway" width="100%" />
+  </a>
 </div>
 
 <br/>
@@ -160,7 +172,9 @@ python manage.py runserver
 ## 🧪 Automated Testing & 🐳 Docker Infrastructure
 
 <div align="center">
-  <img src="docs/assets/testing_docker_animated.svg" alt="PulseWorkspace Testing & Docker Infrastructure" width="100%" />
+  <a href="#testing-docker">
+    <img src="docs/assets/testing_docker_animated.svg" alt="PulseWorkspace Testing & Docker Infrastructure" width="100%" />
+  </a>
 </div>
 
 <br/>
@@ -224,7 +238,9 @@ Distributed under the **MIT License**. Copyright &copy; 2026 **Nived Reddy**. Se
   <br/><br/>
 
   <!-- Animated SVG Footer Banner -->
-  <img src="docs/assets/footer_animated.svg" alt="PulseWorkspace Footer" width="100%" />
+  <a href="#top">
+    <img src="docs/assets/footer_animated.svg" alt="PulseWorkspace Footer" width="100%" />
+  </a>
 
   <br/><br/>
 
